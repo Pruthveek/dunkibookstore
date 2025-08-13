@@ -1,0 +1,54 @@
+{
+  "v1": [
+    {
+      "title": "Baby's First Christmas",
+      "description": "Introduce your little one to the magic of Christmas carols with this enchanting book featuring classic holiday tunes.",
+      "image": "/Images/stjsh_435df35f-1673-4ff7-bfce-f96b0085eb91.png",
+      "buttonText": "Shop Now",
+      "buttonHref": "/shop"
+    },
+    {
+      "title": "The Adventure Begins",
+      "description": "An epic tale for young explorers, packed with illustrations and stories that inspire wonder and courage.",
+      "image": "/Images/st1sh_49ff7980-e1ff-4834-89c6-cecaf4ce2346.png",
+      "buttonText": "Shop Now",
+      "buttonHref": "/shop"
+    }
+  ],
+  "v2": [
+    {
+      "title": "Online book’s store",
+      "description": "Top 20 Books For Year",
+      "image": "/Images/caxczx.png",
+      "buttonText": "Shop Now",
+      "buttonHref": "/shop"
+    },
+    {
+      "title": "Bundles are limited-time",
+      "description": "Starting At $10 Bundles",
+      "image": "/Images/caxcx_c750fcf1-9dca-41fa-b7f5-a1f3d2764f87.png",
+      "buttonText": "Shop Now",
+      "buttonHref": "/shop"
+    }
+  ],
+  "v3": [
+    {
+      "tag":"#1 Trending Now",
+      "title": "Mystery of the Village",
+      "description": "We stock hundreds of quality books and comics so you will definitely  find what you’re looking for.",
+      "image": "/Images/bnxz_c8a2422b-2533-45b2-882e-3b3d58d5f541.png",
+      "buttonText": "Shop Now",
+      "buttonHref": "/shop"
+    },
+    {
+      "tag":"#2 Trending Now",
+      "title": "Love After Married",
+      "description": "We stock hundreds of quality books and comics so you will definitely  find what you’re looking for.",
+      "image": "/Images/bnxxz.png",
+      "buttonText": "Shop Now",
+      "buttonHref": "/shop",
+      "isreverse":true
+    }
+  ]
+}
+

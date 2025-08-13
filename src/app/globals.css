@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --breakpoint-sm: 760px;
+  --breakpoint-md: 993px;
+  --breakpoint-lg: 1200px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Bold */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaStd-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Book */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura Bk BT Book.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Book Italic */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura Bk BT Book Italic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Light */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura light.TTF") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura LT Light */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura LT Light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura LT Medium */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura LT Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura LT Medium Oblique */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura LT Medium Oblique.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Md BT Bold */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura Md BT Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Md BT Bold Italic */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura Md BT Bold Italic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Md BT Medium */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura Md BT Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Md BT Medium Italic */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura Md BT Medium Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Bold Italic */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/Futura-Bold-Italic.Ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Medium Italic */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/futura-mediumitalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Futura Cyrillic Bold */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Cyrillic Book */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicBook.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Cyrillic Demi */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicDemi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Cyrillic ExtraBold */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Cyrillic Heavy */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicHeavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Cyrillic Light */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Futura Cyrillic Medium */
+@font-face {
+  font-family: "FuturaCustom";
+  src: url("/fonts/FuturaCyrillicMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "FuturaCustom", sans-serif;
+}
+
+@theme {
+  --animate-wiggle: wiggle 0.3s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+}

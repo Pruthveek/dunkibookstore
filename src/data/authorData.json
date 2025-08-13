@@ -1,0 +1,30 @@
+[
+  {
+    "autherID":1,
+    "authorName":"Warren Grahams",
+    "authorImage":"/Images/2.jpg",
+    "publishedBooksNum":8
+
+  },
+  {
+    "autherID":2,
+    "authorName":"Randal Adkins",
+    "authorImage":"/Images/4.jpg",
+    "publishedBooksNum":8
+
+  },
+  {
+    "autherID":3,
+    "authorName":"Randal Grahams",
+    "authorImage":"/Images/1.jpg",
+    "publishedBooksNum":8
+
+  },
+  {
+    "autherID":4,
+    "authorName":"Allison Tricia",
+    "authorImage":"/Images/3.jpg",
+    "publishedBooksNum":8
+
+  }
+]

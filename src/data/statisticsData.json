@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Collection Books",
+    "numbers": 17254,
+    "imageUrl": "/Images/book_small.png"
+  },
+  {
+    "title": "Authors Among Us",
+    "numbers": 12000,
+    "imageUrl": "/Images/writer_small.png"
+  },
+  {
+    "title": "Proudly Books Sold",
+    "numbers": 8999,
+    "imageUrl": "/Images/shopping-cart_small.png"
+  },
+  {
+    "title": "Satisfied Clients",
+    "numbers": 60000,
+    "imageUrl": "/Images/happy-customers_small.png"
+  }
+]

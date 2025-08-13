@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Easy Payment",
+    "description": "Have 100% Secure Payments",
+    "icon": "CiCreditCard1"
+  },
+  {
+    "title": "Free Delivery",
+    "description": "Order over $300 More",
+    "icon": "CiDeliveryTruck"
+  },
+  {
+    "title": "Availability",
+    "description": "6 Million Books Available",
+    "icon": "CiBookmark"
+  }
+]

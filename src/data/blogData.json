@@ -1,0 +1,138 @@
+[
+  {
+    "blogId": 1,
+    "title": "Miracle morning with Book shopify",
+    "date": "28 October, 2023",
+    "image": "/Images/b5_600x400_crop_center.jpg",
+    "comments": [
+      {
+        "commentId": 1,
+        "author": "John Doe",
+        "text": "This book changed my morning routine completely!",
+        "date": "29 October, 2023"
+      },
+      {
+        "commentId": 2,
+        "author": "Jane Smith",
+        "text": "I’ve been following the advice for a week now and feel more productive.",
+        "date": "30 October, 2023"
+      },
+      {
+        "commentId": 3,
+        "author": "Alex Johnson",
+        "text": "Great insights! Highly recommend this read to anyone looking for motivation.",
+        "date": "1 November, 2023"
+      }
+    ]
+  },
+  {
+    "blogId": 2,
+    "title": "Best Book store shopify theme ever",
+    "date": "28 October, 2023",
+    "image": "/Images/b2_600x400_crop_center.jpg",
+    "comments": []
+  },
+  {
+    "blogId": 3,
+    "title": "Top 5  Book  for World Summit 2023",
+    "date": "28 October, 2023",
+    "image": "/Images/b3_600x400_crop_center.jpg",
+    "comments": []
+  },
+  {
+    "blogId": 4,
+    "title": "Top 10 Books to Make It a Great Year",
+    "date": "28 October, 2023",
+    "image": "/Images/b4_600x400_crop_center.jpg",
+    "comments": [
+      {
+        "commentId": 1,
+        "author": "John Doe",
+        "text": "This book changed my morning routine completely!",
+        "date": "29 October, 2023"
+      },
+      {
+        "commentId": 2,
+        "author": "Jane Smith",
+        "text": "I’ve been following the advice for a week now and feel more productive.",
+        "date": "30 October, 2023"
+      },
+      {
+        "commentId": 3,
+        "author": "Alex Johnson",
+        "text": "Great insights! Highly recommend this read to anyone looking for motivation.",
+        "date": "1 November, 2023"
+      }
+    ]
+  },
+  {
+    "blogId": 5,
+    "title": "Novels changed our history",
+    "date": "28 October, 2023",
+    "image": "/Images/b6_600x400_crop_center.jpg",
+    "comments": [
+      {
+        "commentId": 1,
+        "author": "John Doe",
+        "text": "This book changed my morning routine completely!",
+        "date": "29 October, 2023"
+      },
+      {
+        "commentId": 2,
+        "author": "Jane Smith",
+        "text": "I’ve been following the advice for a week now and feel more productive.",
+        "date": "30 October, 2023"
+      },
+      {
+        "commentId": 3,
+        "author": "Jane Smith",
+        "text": "I’ve been following the advice for a week now and feel more productive.",
+        "date": "30 October, 2023"
+      },
+      {
+        "commentId": 4,
+        "author": "Jane Smith",
+        "text": "I’ve been following the advice for a week now and feel more productive.",
+        "date": "30 October, 2023"
+      },
+      {
+        "commentId": 5,
+        "author": "Alex Johnson",
+        "text": "Great insights! Highly recommend this read to anyone looking for motivation.",
+        "date": "1 November, 2023"
+      }
+    ]
+  },
+  {
+    "blogId": 6,
+    "title": "Best writers of 19th century",
+    "date": "28 October, 2023",
+    "image": "/Images/b7_600x400_crop_center.jpg",
+    "comments": [
+      {
+        "commentId": 1,
+        "author": "John Doe",
+        "text": "This book changed my morning routine completely!",
+        "date": "29 October, 2023"
+      },
+      {
+        "commentId": 2,
+        "author": "Jane Smith",
+        "text": "I’ve been following the advice for a week now and feel more productive.",
+        "date": "30 October, 2023"
+      },
+      {
+        "commentId": 3,
+        "author": "Alex Johnson",
+        "text": "Great insights! Highly recommend this read to anyone looking for motivation.",
+        "date": "1 November, 2023"
+      },
+      {
+        "commentId": 4,
+        "author": "Alex Johnson",
+        "text": "Great insights! Highly recommend this read to anyone looking for motivation.",
+        "date": "1 November, 2023"
+      }
+    ]
+  }
+]

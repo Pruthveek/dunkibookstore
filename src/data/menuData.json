@@ -1,0 +1,98 @@
+[
+  {
+    "label": "Home",
+    "link": "/",
+    "submenu": [
+      {
+        "label": "Home Demo v1",
+        "link": "/"
+      },
+      {
+        "label": "Home Demo v2",
+        "link": "/homedemov2"
+      },
+      {
+        "label": "Home Demo v3",
+        "link": "/homedemov3"
+      },
+      {
+        "label": "Home Demo v4",
+        "link": "homedemov4"
+      }
+    ]
+  },
+  {
+    "label": "Shop",
+    "link": "/collections/all",
+    "megaMenu": {
+      "images": [
+        {
+          "img": "/Images/p3_28db5c2d-14fa-4bd0-8751-0e9e77afa84b_large.png",
+          "alt": "Featured Books",
+          "link": "/collections/featured-books",
+          "label": "Featured Books"
+        },
+        {
+          "img": "/Images/2.png",
+          "alt": "Best Sellers",
+          "link": "/collections/best-sellers",
+          "label": "Best Sellers"
+        },
+        {
+          "img": "/Images/p8_55ace713-4eb3-4055-9e88-531f20edf283_large.png",
+          "alt": "Most Viewed",
+          "link": "/collections/most-viewed",
+          "label": "Most Viewed"
+        }
+      ],
+      "categories": {
+        "title": "All Collections",
+        "link": "/collections",
+        "items": [
+          { "label": "Romance", "link": "/collections/featured-books" },
+          { "label": "History", "link": "/collections/best-sellers" },
+          { "label": "Comedy", "link": "/collections/best-sellers" },
+          { "label": "Fiction", "link": "/collections/most-viewed" },
+          { "label": "Adventure", "link": "/collections/best-sellers" }
+        ]
+      }
+    }
+  },
+  {
+    "label": "Blog",
+    "link": "/blogs/news"
+  },
+  {
+    "label": "Pages",
+    "submenu": [
+      {
+        "label": "Author List Page",
+        "link": "/pages/authors-list"
+      },
+      {
+        "label": "About Us",
+        "link": "/pages/about-us"
+      },
+      {
+        "label": "Contact Us",
+        "link": "/pages/contact-us"
+      },
+      {
+        "label": "Faq Page",
+        "link": "/pages/faq"
+      },
+      {
+        "label": "404 Error Page",
+        "link": "/404"
+      }
+    ]
+  },
+  {
+    "label": "About Us",
+    "link": "/pages/about-us"
+  },
+  {
+    "label": "Contact Us",
+    "link": "/pages/contact-us"
+  }
+]
