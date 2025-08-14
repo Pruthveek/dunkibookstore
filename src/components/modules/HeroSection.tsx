@@ -4,7 +4,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SlideContent from "@/components/blocks/home/slideContent";
+import SlideContent from "@/components/common/home/slideContent";
 import slides from "@/data/heroSectionData.json";
 
 import "swiper/css";
@@ -18,7 +18,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ layout = "homev1" }) => {
   const ishomev2 = layout === "homev2";
   const ishomev3 = layout === "homev3";
 
-  // Pick correct slides based on layout
   const slideData =
     layout === "homev2" ? slides.v2 :
     layout === "homev3" ? slides.v3 :
@@ -50,12 +49,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ layout = "homev1" }) => {
             <SlideContent {...slide} layout={layout} />
           </SwiperSlide>
         ))}
-
-        {/* Navigation buttons */}
-        <button className="hero-prev absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/60 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition hover:bg-red-600 z-10">
+        <button className={`hero-prev absolute left-4 top-1/2 -translate-y-1/2 text-white  p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition  z-10 ${ishomev3 ? "bg-black hover:bg-white hover:text-red-600" : "bg-black hover:bg-red-600"}`}>
           <ChevronLeft size={24} />
         </button>
-        <button className="hero-next absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/60 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition hover:bg-red-600 z-10">
+        <button className={`hero-next absolute right-4 top-1/2 -translate-y-1/2 text-white  p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition  z-10 ${ishomev3 ? "bg-black hover:bg-white hover:text-red-600" : "bg-black hover:bg-red-600"}`}>
           <ChevronRight size={24} />
         </button>
       </Swiper>

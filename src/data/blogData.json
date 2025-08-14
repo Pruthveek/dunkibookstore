@@ -2,6 +2,7 @@
   {
     "blogId": 1,
     "title": "Miracle morning with Book shopify",
+    "slug": "miracle-morning-with-book-shopify",
     "date": "28 October, 2023",
     "image": "/Images/b5_600x400_crop_center.jpg",
     "comments": [
@@ -28,13 +29,15 @@
   {
     "blogId": 2,
     "title": "Best Book store shopify theme ever",
+    "slug": "best-book-store-shopify-theme-ever",
     "date": "28 October, 2023",
     "image": "/Images/b2_600x400_crop_center.jpg",
     "comments": []
   },
   {
     "blogId": 3,
-    "title": "Top 5  Book  for World Summit 2023",
+    "title": "Top 5 Book for World Summit 2023",
+    "slug": "top-5-book-for-world-summit-2023",
     "date": "28 October, 2023",
     "image": "/Images/b3_600x400_crop_center.jpg",
     "comments": []
@@ -42,6 +45,7 @@
   {
     "blogId": 4,
     "title": "Top 10 Books to Make It a Great Year",
+    "slug": "top-10-books-to-make-it-a-great-year",
     "date": "28 October, 2023",
     "image": "/Images/b4_600x400_crop_center.jpg",
     "comments": [
@@ -68,6 +72,7 @@
   {
     "blogId": 5,
     "title": "Novels changed our history",
+    "slug": "novels-changed-our-history",
     "date": "28 October, 2023",
     "image": "/Images/b6_600x400_crop_center.jpg",
     "comments": [
@@ -106,6 +111,7 @@
   {
     "blogId": 6,
     "title": "Best writers of 19th century",
+    "slug": "best-writers-of-19th-century",
     "date": "28 October, 2023",
     "image": "/Images/b7_600x400_crop_center.jpg",
     "comments": [

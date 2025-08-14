@@ -2,7 +2,7 @@
 
 import React from "react";
 import offerData from "@/data/offerData.json";
-import OfferBannerCard from "../blocks/home/offerBannerCard";
+import OfferBannerCard from "../common/home/offerBannerCard";
 
 type OfferDataTS = {
   id: number;
@@ -10,6 +10,7 @@ type OfferDataTS = {
   offerDescription: string;
   shopNowLink: string;
   offerTime: string;
+  textColor: string;
 };
 
 export default function OfferBanner() {
@@ -22,6 +23,7 @@ export default function OfferBanner() {
           offerDescription={offer.offerDescription}
           shopNowLink={offer.shopNowLink}
           offerTime={offer.offerTime}
+          textColor={offer.textColor}
         />
       ))}
     </div>

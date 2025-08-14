@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "history-book",
+    "title": "History Book",
+    "price": "Read for $4.99",
+    "bgImage": "/Images/tmb1_b735464e-670d-478d-89f7-29fb64985fdd.png"
+  },
+  {
+    "slug": "novel",
+    "title": "Novel",
+    "price": "Read for $6.99",
+    "bgImage": "/Images/tmb3.png"
+  },
+  {
+    "slug": "fiction",
+    "title": "Fiction",
+    "price": "Read for $5.49",
+    "bgImage": "/Images/tmb2_747c4ffd-5a5a-4132-8a70-dd75baafa769.png"
+  },
+  {
+    "slug": "comedy",
+    "title": "comedy",
+    "price": "Read for $3.99",
+    "bgImage": "/Images/tmb2_747c4ffd-5a5a-4132-8a70-dd75baafa769.png"
+  },
+  {
+    "slug": "science",
+    "title": "Science",
+    "price": "Read for $7.29",
+    "bgImage": "/Images/tmb3_00a778fe-2a47-456c-9734-307018bcd125.png"
+  },
+  {
+    "slug": "mystery",
+    "title": "Mystery",
+    "price": "Read for $5.99",
+    "bgImage": "/Images/tmb4.png"
+  }
+]

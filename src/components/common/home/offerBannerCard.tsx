@@ -7,6 +7,7 @@ interface OfferBannerProps {
   offerDescription: string;
   shopNowLink: string;
   offerTime: string;
+  textColor: string;
 }
 
 const OfferBannerCard: React.FC<OfferBannerProps> = ({
@@ -14,11 +15,11 @@ const OfferBannerCard: React.FC<OfferBannerProps> = ({
   offerDescription,
   shopNowLink,
   offerTime,
+  textColor,
 }) => {
   return (
-    <div className="">
+    <div className={`${textColor}`}>
     <div className="relative group overflow-hidden h-full w-full px-6 py-10">
-      {/* Background Image */}
       <Link href={shopNowLink}>
         <Image
           src={bgImage}
@@ -29,10 +30,9 @@ const OfferBannerCard: React.FC<OfferBannerProps> = ({
         />
       </Link>
 
-      {/* Content */}
-      <div className="relative z-10 text-white space-y-3">
+      <div className="relative z-10 space-y-3">
         <h3 className="text-lg">{offerTime}</h3>
-        <h2 className="text-4xl font-semibold">{offerDescription}</h2>
+        <h2 className="text-3xl md:text-5xl ">{offerDescription}</h2>
         <Link href={shopNowLink} className="text-md underline">
           Shop Now
         </Link>

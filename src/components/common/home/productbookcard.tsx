@@ -10,7 +10,7 @@ type ProductCardProps = {
   imageUrl: string;
   price: string;
   productSlug: string;
-  productId: number;
+  productId ?: number;
   layout?: "vertical" | "horizontal";
 };
 
@@ -20,7 +20,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
   imageUrl,
   price,
   productSlug,
-  productId,
   layout = "vertical",
 }) => {
   const isHorizontal = layout === "horizontal";
@@ -31,7 +30,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
         isHorizontal ? "flex-row max-w-2xl" : "flex-col"
       } bg-white duration-300 overflow-hidden group`}
     >
-      {/* Product Image */}
       <Link
         href={`/products/${productSlug}`}
         className={`${isHorizontal ? "w-1/3" : "w-full"} relative block`}
@@ -41,10 +39,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
           alt={title}
           height={isHorizontal ? 200 : 380}
           width={isHorizontal ? 200 : 320}
-          className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+          className="object-cover w-full h-full"
         />
 
-        {/* Hover Buttons */}
         {!isHorizontal &&(
           <div
           className="absolute inset-0 flex items-center justify-center gap-3 
@@ -53,21 +50,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
         >
           <button
             onClick={() => console.log("Quick view:", productSlug)}
-            className="p-2 bg-white   hover:bg-red-600 hover:text-white transition"
+            className="p-2 bg-white rounded-md hover:bg-red-600 hover:text-white transition"
             title="Quick View"
           >
             <Eye className="w-5 h-5" />
           </button>
           <button
             onClick={() => console.log("Add to Wishlist:", productSlug)}
-            className="p-2 bg-white   hover:bg-red-600 hover:text-white transition"
+            className="p-2 bg-white rounded-md hover:bg-red-600 hover:text-white transition"
             title="Add to Wishlist"
           >
             <Heart className="w-5 h-5" />
           </button>
           <button
             onClick={() => console.log("Add to Cart:", productSlug)}
-            className="p-2 bg-white   hover:bg-red-600 hover:text-white transition"
+            className="p-2 bg-white rounded-md hover:bg-red-600 hover:text-white transition"
             title="Add to Cart"
           >
             <CirclePlus className="w-5 h-5" />

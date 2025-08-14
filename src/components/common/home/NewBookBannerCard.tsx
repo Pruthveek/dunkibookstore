@@ -17,7 +17,6 @@ const NewBookBannerCard: React.FC<NewBookBannerCardProps> = ({
 }) => {
   return (
     <div className="relative h-[450px] md:h-[650px] overflow-hidden">
-      {/* Background Image */}
       <Image
         src={bgimage}
         alt={title}
@@ -26,7 +25,6 @@ const NewBookBannerCard: React.FC<NewBookBannerCardProps> = ({
         priority
       />
 
-      {/* Overlay Content */}
       <div className="absolute top-4 md:top-8 inset-0  flex flex-col  text-center text-white p-4">
         <p className="text-xs md:text-base">{title}</p>
         <p className="text-lg md:text-4xl  mb-2">{heading}</p>

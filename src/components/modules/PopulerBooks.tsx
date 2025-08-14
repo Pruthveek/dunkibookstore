@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import ProductCard from "../blocks/home/productbookcard";
+import ProductCard from "../common/home/productbookcard";
 import productData from "@/data/productList.json";
 
 export default function Products() {
@@ -22,7 +22,7 @@ export default function Products() {
   return (
     <div className="flex flex-col items-center justify-center space-y-4 my-10 px-10 ">
       <div className="md:flex justify-between w-full items-center">
-        <div className="text-3xl">Popular Books</div>
+        <div className="text-3xl md:text-5xl">Popular Books</div>
         <div className="flex flex-wrap mt-4 md:mt-0">
           <button className={getButtonStyle("FeaturedBooks")} onClick={() => setActiveFilter("FeaturedBooks")}>
             Featured Books

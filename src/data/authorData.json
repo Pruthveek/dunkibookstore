@@ -1,30 +1,74 @@
 [
   {
-    "autherID":1,
-    "authorName":"Warren Grahams",
-    "authorImage":"/Images/2.jpg",
-    "publishedBooksNum":8
-
+    "autherID": 1,
+    "authorName": "Warren Grahams",
+    "authorImage": "/Images/2.jpg",
+    "publishedBooksNum": 8
   },
   {
-    "autherID":2,
-    "authorName":"Randal Adkins",
-    "authorImage":"/Images/4.jpg",
-    "publishedBooksNum":8
-
+    "autherID": 2,
+    "authorName": "Randal Adkins",
+    "authorImage": "/Images/4.jpg",
+    "publishedBooksNum": 8
   },
   {
-    "autherID":3,
-    "authorName":"Randal Grahams",
-    "authorImage":"/Images/1.jpg",
-    "publishedBooksNum":8
-
+    "autherID": 3,
+    "authorName": "Randal Grahams",
+    "authorImage": "/Images/1.jpg",
+    "publishedBooksNum": 8
   },
   {
-    "autherID":4,
-    "authorName":"Allison Tricia",
-    "authorImage":"/Images/3.jpg",
-    "publishedBooksNum":8
-
+    "autherID": 4,
+    "authorName": "Allison Tricia",
+    "authorImage": "/Images/3.jpg",
+    "publishedBooksNum": 8
+  },
+  {
+    "autherID": 5,
+    "authorName": "James Patterson",
+    "authorImage": "/Images/authors/at1_96461cdb-1ecd-4c69-a00f-75a9000a26a4.jpg",
+    "publishedBooksNum": 8
+  },
+  {
+    "autherID": 6,
+    "authorName": "Paulo Coelho",
+    "authorImage": "/Images/authors/at2.jpg",
+    "publishedBooksNum": 3
+  },
+  {
+    "autherID": 7,
+    "authorName": "Alice Walker",
+    "authorImage": "/Images/authors/at3.jpg",
+    "publishedBooksNum": 10
+  },
+  {
+    "autherID": 8,
+    "authorName": "Aldous Huxley",
+    "authorImage": "/Images/authors/at4.jpg",
+    "publishedBooksNum": 8
+  },
+  {
+    "autherID": 9,
+    "authorName": "Gillian Flynn",
+    "authorImage": "/Images/authors/at5.jpg",
+    "publishedBooksNum": 5
+  },
+  {
+    "autherID": 10,
+    "authorName": "Ernest Cline",
+    "authorImage": "/Images/authors/at6.jpg",
+    "publishedBooksNum": 8
+  },
+  {
+    "autherID": 11,
+    "authorName": "Rainbow Rowell",
+    "authorImage": "/Images/authors/at7.jpg",
+    "publishedBooksNum": 3
+  },
+  {
+    "autherID": 12,
+    "authorName": "Sylvia Plath",
+    "authorImage": "/Images/authors/at8.jpg",
+    "publishedBooksNum": 5
   }
 ]

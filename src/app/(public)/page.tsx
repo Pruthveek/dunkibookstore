@@ -18,7 +18,7 @@ export default function Home() {
       <OfferBanner/>
       <SliderProductComponent title="Deals Of The Week"/>
       <FavoriteAuthors/>
-      <NewBooks/>
+      <NewBooks layout={"homev1"}/>
       <StatisticsComponent/>
       <Footer/>
     </div>

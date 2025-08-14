@@ -7,15 +7,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import BlogCard from "../blocks/home/BlogCard";
+import BlogCard from "../common/home/BlogCard";
 import BlogData from "@/data/blogData.json";
 import CustomButton from "../ui/Buttons";
 
 type BlogListProps = {
   title: string;
+  buttontext:string;
 };
 
-const BlogList: React.FC<BlogListProps> = ({ title }) => {
+const BlogList: React.FC<BlogListProps> = ({ title,buttontext }) => {
   const [blogs, setBlogs] = useState<typeof BlogData>([]);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
@@ -27,9 +28,9 @@ const BlogList: React.FC<BlogListProps> = ({ title }) => {
   return (
     <div className="relative group/arrow my-10 px-10">
       <div className="md:flex justify-between items-center mb-6">
-        <div className="text-3xl">{title}</div>
+        <div className="text-3xl md:text-5xl">{title}</div>
         <div className="flex mt-4 md:mt-0">
-          <CustomButton variant="secondary">View All Blogs</CustomButton>
+          <CustomButton variant="secondary">{buttontext}</CustomButton>
         </div>
       </div>
       <Swiper

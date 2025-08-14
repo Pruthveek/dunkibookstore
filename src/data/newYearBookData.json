@@ -1,0 +1,18 @@
+{
+  "pagev1": [
+    {
+      "bgimage": "/Images/bnr-img-w-prod_260687a6-3a3b-4a43-93f2-c88e96cb1076_2048x2048.png",
+      "title": "NEW YEAR - NEW BOOKS",
+      "heading": "The 19 Best New Books of January",
+      "linkurl": "/collections/best-sellers"
+    }
+  ],
+  "pagev2": [
+    {
+      "bgimage": "/Images/cdx_4520eb42-58b1-4450-bc74-62a706e59c09_2048x2048.png",
+      "title": "NEW YEAR - NEW BOOKS",
+      "heading": "Book Festival Collections",
+      "linkurl": "/collections/best-sellers"
+    }
+  ]
+}

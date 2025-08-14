@@ -1,5 +1,5 @@
 import React from "react";
-import FeatureCard from "../blocks/home/FeatureCard";
+import FeatureCard from "../common/home/FeatureCard";
 import featureData from "@/data/featureData.json";
 
 const FeatureList: React.FC = () => {

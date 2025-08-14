@@ -21,7 +21,7 @@ export default function OnlineBookCopy() {
             <li>Classic Literature</li>
           </ul>
           <Link href="/collections/all">
-            <CustomButton size="lg" variant="opposithover">
+            <CustomButton size="lg" variant="secondary">
               Shop Now
             </CustomButton>
           </Link>

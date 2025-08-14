@@ -30,7 +30,7 @@ const Slide: React.FC<SlideProps> = ({
   return (
     <div
       className={`grid grid-cols-1 md:grid-cols-2 h-full w-full px-4 md:px-30 gap-6
-        ${ishomev3 ? "pt-10" : "py-10"}
+        ${ishomev3 ? "py-0" : "py-10"}
       `}
     >
       {/* Text Section */}

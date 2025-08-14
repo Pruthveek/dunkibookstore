@@ -6,20 +6,23 @@ import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from "../blocks/home/productbookcard";
+import ProductCard from "../common/home/productbookcard";
 import productData from "@/data/productList.json";
 import CustomButton from "../ui/Buttons";
 
 type SliderProductComponentProps = {
   title: string;
+  layout ?: "homev1" | "homev2" | "homev3" | "homev4";
 };
 
 const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
   title,
+  layout,
 }) => {
   const [products, setProducts] = useState<typeof productData>([]);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
+  const ishomev4 = layout === "homev4";
 
   useEffect(() => {
     setProducts(productData);
@@ -30,9 +33,15 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
   return (
     <div className="relative group/arrow my-10 px-10">
       <div className="md:flex justify-between items-center mb-6">
-        <div className="text-3xl">{title}</div>
+        <div className="text-3xl md:text-5xl">{title}</div>
         <div className="flex mt-4 md:mt-0">
-          <CustomButton variant="secondary">View All Books</CustomButton>
+          {ishomev4 ? (
+            <CustomButton variant="normal">
+              00 Days 00 Hours 00 Min 00 Sec
+            </CustomButton>
+          ) : (
+            <CustomButton variant="secondary">View All Books</CustomButton>
+          )}
         </div>
       </div>
 

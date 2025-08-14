@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import OfferBar from "../blocks/header/OfferBar";
+import OfferBar from "../common/header/OfferBar";
 import Image from "next/image";
-import SearchBox from "../blocks/header/SearchBox";
+import SearchBox from "../common/header/SearchBox";
 import { Headset } from "lucide-react";
-import { HeaderIcons } from "../blocks/header/Headericon";
-import NavbarMenu from "../blocks/header/NavbarMenu";
+import { HeaderIcons } from "../common/header/Headericon";
+import NavbarMenu from "../common/header/NavbarMenu";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

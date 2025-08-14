@@ -4,13 +4,15 @@
     "bgImage": "/images/bnr1.png",
     "offerDescription": "Up To 20% Off",
     "shopNowLink": "/collections/all",
-    "offerTime": "Best Weekend"
+    "offerTime": "Best Weekend",
+    "textColor":"text-white"
   },
   {
     "id": 2,
     "bgImage": "/images/bnr2x.png",
     "offerDescription": "Special Offer",
     "shopNowLink": "/collections/all",
-    "offerTime": "Nice Bookshelf"
+    "offerTime": "Nice Bookshelf",
+    "textColor":"text-black"
   }
 ]
