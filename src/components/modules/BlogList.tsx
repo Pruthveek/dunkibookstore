@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { Swiper as SwiperType, NavigationOptions } from "swiper/types";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -13,13 +14,14 @@ import CustomButton from "../ui/Buttons";
 
 type BlogListProps = {
   title: string;
-  buttontext:string;
+  buttontext: string;
 };
 
-const BlogList: React.FC<BlogListProps> = ({ title,buttontext }) => {
+const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
   const [blogs, setBlogs] = useState<typeof BlogData>([]);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     setBlogs(BlogData);
@@ -27,12 +29,15 @@ const BlogList: React.FC<BlogListProps> = ({ title,buttontext }) => {
 
   return (
     <div className="relative group/arrow my-10 px-10">
+      {/* Header */}
       <div className="md:flex justify-between items-center mb-6">
         <div className="text-3xl md:text-5xl">{title}</div>
         <div className="flex mt-4 md:mt-0">
           <CustomButton variant="secondary">{buttontext}</CustomButton>
         </div>
       </div>
+
+      {/* Swiper */}
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
@@ -41,19 +46,21 @@ const BlogList: React.FC<BlogListProps> = ({ title,buttontext }) => {
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        onBeforeInit={(swiper: any) => {
-          if (typeof swiper.params.navigation !== "boolean") {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+          const navigation = swiper.params.navigation as NavigationOptions | undefined;
+          if (navigation && typeof navigation !== "boolean") {
+            navigation.prevEl = prevRef.current;
+            navigation.nextEl = nextRef.current;
           }
         }}
         onSwiper={(swiper) => {
+          swiperRef.current = swiper;
           setTimeout(() => {
-            if (prevRef.current && nextRef.current) {
-              // @ts-ignore
-              swiper.params.navigation.prevEl = prevRef.current;
-              // @ts-ignore
-              swiper.params.navigation.nextEl = nextRef.current;
+            const navigation = swiper.params.navigation as NavigationOptions | undefined;
+            if (navigation && typeof navigation !== "boolean") {
+              navigation.prevEl = prevRef.current;
+              navigation.nextEl = nextRef.current;
               swiper.navigation.destroy();
               swiper.navigation.init();
               swiper.navigation.update();
@@ -67,6 +74,8 @@ const BlogList: React.FC<BlogListProps> = ({ title,buttontext }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Prev Button */}
       <button
         ref={prevRef}
         type="button"
@@ -77,6 +86,7 @@ const BlogList: React.FC<BlogListProps> = ({ title,buttontext }) => {
         <ChevronLeft size={24} />
       </button>
 
+      {/* Next Button */}
       <button
         ref={nextRef}
         type="button"
