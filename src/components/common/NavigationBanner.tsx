@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface NavigationBannerProps {
-  title: string;
+  title?: string;
   breadcrumb: { label: string; href?: string }[];
 }
 
@@ -22,7 +22,7 @@ export default function NavigationBanner({
       />
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-black">
         <h3 className="text-2xl sm:text-5xl mb-2">{title}</h3>
-        <nav className="flex items-center text-sm sm:text-base">
+        <nav className="flex items-center text-md sm:text-lg">
           {breadcrumb.map((item, index) => (
             <span key={index} className="flex items-center">
               {item.href ? (

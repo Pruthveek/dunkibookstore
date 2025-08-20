@@ -74,6 +74,7 @@ export default function AuthForm({
           {textarea?.map((textarea, idx) => (
             <TextArea
               key={idx}
+              label={textarea.label}
               name={textarea.name}
               variantStyles={variantStyles}
               className={`${bg === "withbg" ? "mb-6" : "mb-10"}`}

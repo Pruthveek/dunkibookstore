@@ -43,7 +43,7 @@ const TextArea: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <textarea
+      <textarea rows={5}
         id={name}
         name={name}
         defaultValue={value}

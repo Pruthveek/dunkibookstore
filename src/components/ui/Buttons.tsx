@@ -8,7 +8,7 @@ type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: "sm" | "md" | "lg" |"xl";
 };
 
-const baseStyles = " font-base transition duration-500 ease-in-out ";
+const baseStyles = " font-base transition duration-500 ease-in-out cursor-pointer";
 
 const variantStyles = {
   primary: "bg-red-600 text-white hover:bg-white hover:text-black",
