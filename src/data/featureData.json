@@ -1,17 +1,37 @@
-[
-  {
-    "title": "Easy Payment",
-    "description": "Have 100% Secure Payments",
-    "icon": "CiCreditCard1"
-  },
-  {
-    "title": "Free Delivery",
-    "description": "Order over $300 More",
-    "icon": "CiDeliveryTruck"
-  },
-  {
-    "title": "Availability",
-    "description": "6 Million Books Available",
-    "icon": "CiBookmark"
-  }
-]
+{
+  "features": [
+    {
+      "title": "Easy Payment",
+      "description": "Have 100% Secure Payments",
+      "icon": "CiCreditCard1"
+    },
+    {
+      "title": "Free Delivery",
+      "description": "Order over $300 More",
+      "icon": "CiDeliveryTruck"
+    },
+    {
+      "title": "Availability",
+      "description": "6 Million Books Available",
+      "icon": "CiBookmark"
+    }
+  ],
+  "shoppingFeatures": [
+    {
+      "title": "Free Shipping",
+      "description": "Order over $300 More",
+      "image": "/Images/aboutus/box_a472e5ae-398d-48f4-af98-9fce43d74bf3_small.png"
+    },
+    {
+      "title": "Free Shipping",
+      "description": "100% Secure Payment",
+      "image": "/Images/aboutus/credit-card_87d42ab3-a9f5-49c6-b9dc-fca6682d8b28_small.png"
+    },
+    {
+      "title": "Free Shipping",
+      "description": "Within 30 Days Returns",
+      "image": "/Images/aboutus/purchase_80d38278-02b1-4f17-b56f-697aa8a86d4f_small.png"
+    }
+  ]
+}
+

@@ -7,10 +7,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Swiper as SwiperType, NavigationOptions } from "swiper/types";
 import "swiper/css";
 import "swiper/css/navigation";
-
-import BlogCard from "../common/home/BlogCard";
 import BlogData from "@/data/blogData.json";
-import CustomButton from "../ui/Buttons";
+import CustomButton from "@/components/ui/Buttons";
+import BlogCard from "@/components/common/blog/BlogCard";
 
 type BlogListProps = {
   title: string;
@@ -28,20 +27,18 @@ const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
   }, []);
 
   return (
-    <div className="relative group/arrow my-10 px-10">
-      {/* Header */}
+    <div className="section-container2 relative group/arrow my-10">
       <div className="md:flex justify-between items-center mb-6">
         <div className="text-3xl md:text-5xl">{title}</div>
         <div className="flex mt-4 md:mt-0">
           <CustomButton variant="secondary">{buttontext}</CustomButton>
         </div>
       </div>
-
-      {/* Swiper */}
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={1}
+        loop={true}
         breakpoints={{
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
@@ -74,8 +71,6 @@ const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Prev Button */}
       <button
         ref={prevRef}
         type="button"
@@ -86,7 +81,6 @@ const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
         <ChevronLeft size={24} />
       </button>
 
-      {/* Next Button */}
       <button
         ref={nextRef}
         type="button"

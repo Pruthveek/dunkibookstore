@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CustomButton from "../ui/Buttons";
+import CustomButton from "@/components/ui/Buttons";
 export default function OnlineBookCopy() {
   return (
-    <div className="bg-[#FAF4EB] px-10 group">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center space-y-8 overflow-hidden ">
+    <div className="bg-[#FAF4EB] group">
+      <div className="section-container2 grid grid-cols-1 md:grid-cols-2 items-center space-y-8 overflow-hidden ">
         <div className=" space-y-6">
           <p className="text-md md:text-xl text-red-600">Online Book Copy</p>
           <p className="text-xl md:text-4xl">

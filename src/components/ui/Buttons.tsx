@@ -13,7 +13,7 @@ const baseStyles = " font-base transition duration-500 ease-in-out ";
 const variantStyles = {
   primary: "bg-red-600 text-white hover:bg-white hover:text-black",
   third:"bg-black text-white hover:bg-white hover:text-black",
-  secondary: "bg-black text-white hover:bg-red-600 hover:text-white",
+  secondary: "bg-black text-white hover:bg-red-600 hover:text-white transform ease-in-out duration-1000",
   opposithover: "bg-red-600 text-white hover:bg-black",
   active: "bg-[#f1f1f1] active:bg-red-600 active:text-white",
   ghost: "bg-transparent text-gray-700 hover:text-red-600",

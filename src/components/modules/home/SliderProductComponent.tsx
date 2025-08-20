@@ -7,9 +7,9 @@ import type { Swiper as SwiperType } from "swiper";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from "../common/home/productbookcard";
+import ProductCard from "@/components/common/home/productbookcard";
 import productData from "@/data/productList.json";
-import CustomButton from "../ui/Buttons";
+import CustomButton from "@/components/ui/Buttons";
 
 type SliderProductComponentProps = {
   title: string;
@@ -34,7 +34,8 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
   const filteredProducts = products.filter((product) => product.DealsOfTheWeek);
 
   return (
-    <div className="relative group/arrow my-10 px-10">
+    <section className="max-w-7xl mx-auto px-4">
+      <div className="  relative group/arrow my-10">
       {/* Header */}
       <div className="md:flex justify-between items-center mb-6">
         <div className="text-3xl md:text-5xl">{title}</div>
@@ -54,6 +55,7 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
         modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={1}
+        loop={true}
         breakpoints={{
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
@@ -65,7 +67,6 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
         }}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
-          // Attach refs before init
           if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
             swiper.params.navigation.prevEl = prevRef.current;
             swiper.params.navigation.nextEl = nextRef.current;
@@ -73,7 +74,6 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          // Ensure navigation is re-initialized
           setTimeout(() => {
             if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
               swiper.params.navigation.prevEl = prevRef.current;
@@ -92,7 +92,6 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
         ))}
       </Swiper>
 
-      {/* Navigation Buttons */}
       <button
         ref={prevRef}
         type="button"
@@ -113,6 +112,8 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
         <ChevronRight size={24} />
       </button>
     </div>
+    </section>
+    
   );
 };
 

@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ layout = "homev1" }) => {
     <div
       className={`relative w-full ${
         ishomev2 ? "bg-[#FCECEC]" : "bg-[#00453E]"
-      } ${ishomev3 ? "bg-red-600" : ""}`}
+      } ${ishomev3 ? "bg-red-600 " : ""}`}
     >
       <Swiper
         modules={[Navigation, Autoplay]}

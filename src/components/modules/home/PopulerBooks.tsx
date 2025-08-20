@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import ProductCard from "../common/home/productbookcard";
+import ProductCard from "@/components/common/home/productbookcard";
 import productData from "@/data/productList.json";
 
 export default function Products() {
@@ -20,7 +20,7 @@ export default function Products() {
     }`;
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-4 my-10 px-10 ">
+    <section className="section-container mx-auto ">
       <div className="md:flex justify-between w-full items-center">
         <div className="text-3xl md:text-5xl">Popular Books</div>
         <div className="flex flex-wrap mt-4 md:mt-0">
@@ -54,6 +54,6 @@ export default function Products() {
           <div className="col-span-full text-center text-gray-500">No products found.</div>
         )}
       </div>
-    </div>
+    </section>
   );
 }

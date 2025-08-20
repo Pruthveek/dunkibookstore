@@ -1,6 +1,6 @@
 import React from 'react'
-import Timer from '../ui/Timer'
-import CustomButton from '../ui/Buttons'
+import Timer from '@/components/ui/Timer'
+import CustomButton from '@/components/ui/Buttons'
 import Image from 'next/image'
 
 export default function LimitedEditionComponent() {

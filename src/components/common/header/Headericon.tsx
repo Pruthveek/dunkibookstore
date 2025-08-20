@@ -22,7 +22,7 @@ export function HeaderIcons() {
           <p className="text-base text-gray-600">Your cart is empty.</p>
         </div>
       </Dropdown>
-      <Dropdown trigger={<User size={25} className="hover:text-red-600"/>}>
+      <Dropdown trigger={<User size={25} className="hover:text-red-600 hidden lg:block"/>}>
         <div className="p-4">
           <h2 className="text-xl text-black pb-4 mb-4 border-b border-gray-300">
             Account

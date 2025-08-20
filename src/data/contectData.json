@@ -1,0 +1,17 @@
+[
+    {
+      "title": "Address:",
+      "description": "123 Suspendis eccums american",
+      "icon": "MapPin"
+    },
+    {
+      "title": "Email:",
+      "description": "info@gmail.com",
+      "icon": "Mail"
+    },
+    {
+      "title": "Call us:",
+      "description": "+1 23 445 789 00",
+      "icon": "Smartphone"
+    }
+  ]

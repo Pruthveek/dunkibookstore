@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from "../common/home/productbookcard";
+import ProductCard from "@/components/common/home/productbookcard";
 import Image from "next/image";
 
 export default function AuthorOfTheMonth() {
@@ -16,7 +16,7 @@ export default function AuthorOfTheMonth() {
   }, []);
 
   return (
-    <section className="my-12 px-4 md:px-10">
+    <section className="section-container2 my-12 px-4">
       <div className="text-center mb-10">
         <h2 className="text-3xl md:text-5xl">Author of the Month</h2>
       </div>
@@ -27,6 +27,7 @@ export default function AuthorOfTheMonth() {
             modules={[Navigation]}
             spaceBetween={20}
             slidesPerView={1}
+            loop={true}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },

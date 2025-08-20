@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "bgImage": "/images/bnr1.png",
+    "bgImage": "/Images/bnr1.png",
     "offerDescription": "Up To 20% Off",
     "shopNowLink": "/collections/all",
     "offerTime": "Best Weekend",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "bgImage": "/images/bnr2x.png",
+    "bgImage": "/Images/bnr2x.png",
     "offerDescription": "Special Offer",
     "shopNowLink": "/collections/all",
     "offerTime": "Nice Bookshelf",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import DropdownMenu from "@/components/ui/DropdownMenu";
 import menuData from "@/data/menuData.json";
-import MegaMenu from "../../ui/MegaMenu";
+import MegaMenu from "@/components/ui/MegaMenu";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 interface MenuItem {
@@ -30,7 +30,7 @@ export default function NavbarMenu() {
   }, []);
 
   return (
-    <ul className="flex space-x-6 relative z-50">
+    <ul className="flex flex-col items-start lg:flex-row space-x-6 relative z-50">
       {menus.map((menu, index) => {
         const hasDropdown = menu.submenu || menu.megaMenu;
         return (

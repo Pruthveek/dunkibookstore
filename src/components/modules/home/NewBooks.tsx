@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProductCard from "../common/home/productbookcard";
+import ProductCard from "@/components/common/home/productbookcard";
 import productData from "@/data/productList.json";
-import NewBookBannerCard from "../common/home/NewBookBannerCard";
+import NewBookBannerCard from "@/components/common/home/NewBookBannerCard";
 import newYearBookData from "@/data/newYearBookData.json";
 
 type NewBooksProp = {
@@ -25,7 +25,7 @@ const NewBooks: React.FC<NewBooksProp> = ({ layout }) => {
   }, [layout]);
 
   return (
-    <div className="flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-5 gap-4 my-10 px-10">
+    <section className="section-container2"><div className="flex flex-col lg:grid lg:grid-rows-1 lg:grid-cols-5 gap-4 my-10">
       <div className="md:col-span-2">
         {bannerData.length > 0 && (
           <NewBookBannerCard
@@ -48,7 +48,8 @@ const NewBooks: React.FC<NewBooksProp> = ({ layout }) => {
           </div>
         )}
       </div>
-    </div>
+    </div></section>
+    
   );
 };
 

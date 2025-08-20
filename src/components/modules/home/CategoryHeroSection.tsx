@@ -5,7 +5,7 @@ import CategoryCard from "@/components/common/home/CategoryCard";
 
 export default function CategoryHeroSection() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 px-10">
+    <div className=" section-container2 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 pt-4">
       <div className="flex flex-col gap-4 md:gap-6">
         <CategoryCard {...categoryData[0]} size="large" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">

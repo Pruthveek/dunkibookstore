@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Janifa",
+    "location": "California",
+    "image": "/Images/aboutus/1_100x.jpg",
+    "quote": "Excellent service. The books were wrapped securely and arrived in nice condition."
+  },
+  {
+    "id": 2,
+    "name": "Perkins  ",
+    "location": "New York",
+    "image": "/Images/aboutus/2_100x.jpg",
+    "quote": "Excellent service. The books were wrapped securely and arrived in nice condition."
+  },
+  {
+    "id": 3,
+    "name": "hester  ",
+    "location": "Texas",
+    "image": "/Images/aboutus/3_100x.jpg",
+    "quote": "Excellent service. The books were wrapped securely and arrived in nice condition."
+  },
+  {
+    "id": 4,
+    "name": "johan",
+    "location": "Florida",
+    "image": "/Images/aboutus/4_100x.jpg",
+    "quote": "Excellent service. The books were wrapped securely and arrived in nice condition."
+  }
+]

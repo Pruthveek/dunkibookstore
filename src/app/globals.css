@@ -214,6 +214,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "FuturaCustom", sans-serif;
+  margin-top: 200px;
+  transition: margin-top 0.3s ease;
+}
+
+@media only screen and (min-width: 300px) and (max-width:1024px) {
+  body {
+    margin-top: 55px;
+  }
 }
 
 @theme {
@@ -230,5 +238,12 @@ body {
 }
 
 .section-container {
-  @apply flex flex-col items-center max-w-7xl overflow-hidden px-4 my-10;
+  @apply w-full flex flex-col items-center max-w-7xl px-4 my-10;
+}
+.section-container2 {
+  @apply max-w-7xl mx-auto px-4;
+}
+.text-outline {
+  color: transparent; 
+  -webkit-text-stroke: 1px white; 
 }

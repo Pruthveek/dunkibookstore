@@ -2,7 +2,7 @@
 
 import React from "react";
 import offerData from "@/data/offerData.json";
-import OfferBannerCard from "../common/home/offerBannerCard";
+import OfferBannerCard from "@/components/common/home/offerBannerCard";
 
 type OfferDataTS = {
   id: number;
@@ -15,7 +15,8 @@ type OfferDataTS = {
 
 export default function OfferBanner() {
   return (
-    <div className="w-full h-[400px] md:h-[250px] grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 gap-4 px-10  my-9">
+    <section className="section-container mx-auto">
+      <div className="w-full h-[400px] md:h-[250px] grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-2 gap-4">
       {offerData.map((offer: OfferDataTS) => (
         <OfferBannerCard
           key={offer.id}
@@ -27,5 +28,7 @@ export default function OfferBanner() {
         />
       ))}
     </div>
+    </section>
+    
   );
 }

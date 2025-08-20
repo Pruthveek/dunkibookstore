@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function SalesImageComponent() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-y-4 md:gap-x-4 px-10">
+    <div className="section-container2 grid grid-cols-1 md:grid-cols-5 gap-y-4 md:gap-x-4">
       <div className=" col-span-3 relative w-full h-40 md:h-96 overflow-hidden">
         <Image
           src="/Images/chbnr.jpg"

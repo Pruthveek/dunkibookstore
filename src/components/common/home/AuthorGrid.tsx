@@ -25,7 +25,7 @@ export default function AuthorGrid({
 
   return (
     <div
-      className={`section-container ${
+      className={`section-container2 my-10 ${
         className || ""
       }`}
     >

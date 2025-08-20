@@ -4,7 +4,6 @@ import React from "react";
 
 interface InputFieldProps {
   label?: string;
-  type: string;
   name: string;
   value?: string;
   placeholder?: string;
@@ -31,9 +30,8 @@ const sizeMap: Record<string, string> = {
   lg: "text-lg px-4 py-3 md:px-5 md:py-4",
 };
 
-const InputField: React.FC<InputFieldProps> = ({
+const TextArea: React.FC<InputFieldProps> = ({
   label,
-  type,
   name,
   value,
   placeholder,
@@ -45,10 +43,9 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <div className="flex flex-col">
-      <input
+      <textarea
         id={name}
         name={name}
-        type={type}
         defaultValue={value}
         placeholder={placeholder || label}
         required={required}
@@ -61,4 +58,4 @@ const InputField: React.FC<InputFieldProps> = ({
   );
 };
 
-export default InputField;
+export default TextArea;

@@ -8,8 +8,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
-import ProductCard from "../common/home/productbookcard";
 import productData from "@/data/productList.json";
+import ProductCard from "@/components/common/home/productbookcard";
 
 type SliderProductComponentProps = {
   title: string;
@@ -26,7 +26,7 @@ const NewReleaseBooks: React.FC<SliderProductComponentProps> = ({ title }) => {
   }, []);
 
   return (
-    <div className="relative group/arrow my-10 px-10">
+    <div className="section-container2 relative group/arrow my-10">
       <div className="text-center mb-6">
         <div className="text-3xl md:text-5xl">{title}</div>
       </div>
