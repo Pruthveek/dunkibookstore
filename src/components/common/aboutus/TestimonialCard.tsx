@@ -14,7 +14,7 @@ export default function TestimonialCard({
   location,
 }: TestimonialCardProps) {
   return (
-    <div className="relative border border-gray-200 m-5 px-12 pt-12 ">
+    <div className="relative border border-gray-300 m-5 px-12 pt-12 ">
       <div className="absolute bottom-8 right-8">
         <svg
           width="58"

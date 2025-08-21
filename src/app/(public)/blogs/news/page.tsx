@@ -1,9 +1,9 @@
-import NavigationBanner from "@/components/common/NavigationBanner";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import BlogComponent from "@/components/modules/blog/BlogComponent";
 export default function page() {
   return (
     <section className="flex flex-col items-center">
-      <NavigationBanner
+      <BreadCrumb
         title="News"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "News" }]}
       />

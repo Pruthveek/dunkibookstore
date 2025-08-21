@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import NavigationBanner from "@/components/common/NavigationBanner";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import CustomButton from "@/components/ui/Buttons";
 export default function NotFound() {
   return (
@@ -10,7 +10,7 @@ export default function NotFound() {
         <title>404 - Page Not Found</title>
         <meta name="description" content="Oops! This page doesn't exist." />
       </Head>
-      <NavigationBanner
+      <BreadCrumb
             title="404 Not Found"
             breadcrumb={[{ label: "Home", href: "/" }, { label: "404 Not found" }]}
           />

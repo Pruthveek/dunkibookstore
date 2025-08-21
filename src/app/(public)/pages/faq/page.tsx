@@ -1,6 +1,6 @@
 "use client";
 
-import NavigationBanner from "@/components/common/NavigationBanner";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import React, { useState } from "react";
 import faqData from "@/data/faqData.json";
 import FAQSection from "@/components/common/faq/FAQSection";
@@ -10,7 +10,7 @@ export default function FaqPAge() {
 
   return (
     <section className="flex flex-col items-center">
-      <NavigationBanner
+      <BreadCrumb
         title="Faq Page"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Faq Page" }]}
       />

@@ -5,7 +5,7 @@ import blogData from "@/data/blogData.json";
 import BlogCard from "@/components/common/blog/BlogCard";
 import BlogSidebar from "@/components/common/blog/BlogSidebar";
 import { useParams, useRouter } from "next/navigation";
-import NavigationBanner from "@/components/common/NavigationBanner";
+import BreadCrumb from "@/components/common/BreadCrumb";
 
 type Comment = {
   commentId: number;
@@ -51,7 +51,7 @@ export default function BlogTag() {
 
   return (
     <>
-      <NavigationBanner
+      <BreadCrumb
         title="News"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "News" }]}
       />

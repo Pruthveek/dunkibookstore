@@ -1,6 +1,6 @@
 "use client";
 import AuthForm from "@/components/common/auth/AuthForm";
-import NavigationBanner from "@/components/common/NavigationBanner";
+import BreadCrumb from "@/components/common/BreadCrumb";
 
 export default function RegisterPage() {
   const handleRegister = (e: React.FormEvent) => {
@@ -9,7 +9,7 @@ export default function RegisterPage() {
 
   return (
     <>
-      <NavigationBanner
+      <BreadCrumb
         title="Create Account"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Create Account" }]}
       />

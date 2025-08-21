@@ -3,7 +3,7 @@ import { useParams, useRouter } from "next/navigation";
 import blogData from "@/data/blogData.json";
 import BlogSidebar from "@/components/common/blog/BlogSidebar";
 import { useEffect, useState } from "react";
-import NavigationBanner from "@/components/common/NavigationBanner";
+import BreadCrumb from "@/components/common/BreadCrumb";
 import BlogDetailCard from "@/components/common/blog/BlogDetailCard"; // ✅ import new component
 
 type Comment = {
@@ -48,7 +48,7 @@ export default function BlogDetailPage() {
 
   return (
     <>
-      <NavigationBanner
+      <BreadCrumb
         breadcrumb={[{ label: "Home", href: "/" }, { label: `${slug}` }]}
       />
       <section className="section-container2 w-full grid grid-cols-1 md:grid-cols-4 md:gap-8 my-10 pt-10">

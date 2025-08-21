@@ -92,7 +92,7 @@ export default function Header() {
         </div>
       </div>
       {/* Mobile Header */}
-      <div className="lg:hidden w-screen flex justify-between items-center px-4 py-3 border-b border-gray-200 fixed top-0 left-0 right-0 bg-white z-50">
+      <div className="lg:hidden w-screen flex justify-between items-center px-4 py-3 border-b border-gray-300 fixed top-0 left-0 right-0 bg-white z-50">
         <Image
           src="/Images/logo1_130x@2x.png"
           alt="Logo"
@@ -128,7 +128,7 @@ export default function Header() {
               className="fixed top-0 right-0 h-full w-[300px] bg-white shadow-lg z-[70] flex flex-col"
             >
               {/* Drawer Header */}
-              <div className="flex justify-between items-center gap-4 p-4 border-b border-gray-200">
+              <div className="flex justify-between items-center gap-4 p-4 border-b border-gray-300">
                 <SearchBox placeholder="I'm looking for…" />
                 <button onClick={() => setSidebarOpen(false)}>
                   <CircleX size={15} />
@@ -140,11 +140,19 @@ export default function Header() {
                   <div key={item.label}>
                     {item.submenu || item.megaMenu ? (
                       <div>
+                        <div className="flex justify-between items-center text-xl">
+                          <Link
+                        href={item.link || "#"}
+                        className="block py-2 text-xl"
+                        onClick={() => setSidebarOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
                         <button
                           onClick={() => toggleSubmenu(item.label)}
-                          className="w-full flex justify-between items-center py-2 text-left text-xl"
+                          className="flex justify-between items-center py-2 text-left "
                         >
-                          {item.label}
+                          
                           <span
                             className={`ml-2 text-xl transition-transform duration-1000 ease-in-out ${
                               openSubmenu === item.label
@@ -155,6 +163,7 @@ export default function Header() {
                             {openSubmenu === item.label ? "−" : "+"}
                           </span>
                         </button>
+                        </div>
 
                         <div
                           className={`transition-all duration-300 overflow-hidden ${
@@ -218,7 +227,7 @@ export default function Header() {
                 <div>
                   <button
                     onClick={() => toggleSubmenu("Account")}
-                    className="w-full flex justify-between items-center py-2 text-left text-xl border-y border-gray-200"
+                    className="w-full flex justify-between items-center py-2 text-left text-xl border-y border-gray-300"
                   >
                     Account
                     <span

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Biography",
+    "image": "/Images/shop/biography_1.png",
+    "link": "/collections/featured-books"
+  },
+  {
+    "id": 2,
+    "title": "Romance",
+    "image": "/Images/shop/love-books.png",
+    "link": "/collections/best-sellers"
+  },
+  {
+    "id": 3,
+    "title": "History",
+    "image": "/Images/shop/history-book.png",
+    "link": "/collections/most-viewed"
+  },
+  {
+    "id": 4,
+    "title": "Kids Book",
+    "image": "/Images/shop/reading.png",
+    "link": "/collections/featured-books"
+  },
+  {
+    "id": 5,
+    "title": "Thriller",
+    "image": "/Images/shop/thriller.png",
+    "link": "/collections/best-sellers"
+  },
+  {
+    "id": 6,
+    "title": "Cook book",
+    "image": "/Images/shop/diet.png",
+    "link": "/collections/featured-books"
+  }
+]

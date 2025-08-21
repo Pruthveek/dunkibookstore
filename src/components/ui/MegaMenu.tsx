@@ -46,7 +46,7 @@ export default function MegaMenu({ images, categories }: MegaMenuProps) {
       {/* Right - Categories */}
       <div className="col-span-1">
         <Link href={categories.link} >
-          <h4 className="mb-2 pb-2 text-lg border-b border-gray-200">
+          <h4 className="mb-2 pb-2 text-lg border-b border-gray-300">
             {categories.title}
           </h4>
         </Link>

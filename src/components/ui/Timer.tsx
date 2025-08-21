@@ -7,21 +7,33 @@ const timerData = [
   { value: "00", label: "Sec" },
 ];
 
-export default function Timer() {
+type TimerProps = {
+  variant?: "primary" | "secondary";
+};
+
+export default function Timer({ variant = "primary" }: TimerProps) {
   return (
-    <div className="grid grid-cols-4 gap-2  w-full max-w-xs md:max-w-sm ">
+    <div className="grid grid-cols-4 gap-2 w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
       {timerData.map((item, index) => (
         <div
           key={index}
-          className="grid justify-center items-center bg-white size-14 sm:size-16 md:size-20 rounded-sm shadow-sm"
+          className={`flex flex-col justify-center items-center aspect-square w-full rounded-md shadow-sm
+            ${
+              variant === "primary"
+                ? "bg-white text-black"
+                : "bg-black text-white "
+            }`}
         >
-          <p className="text-center text-sm sm:text-base md:text-lg font-semibold">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-tight">
             {item.value}
-            <br />
-            <span className="text-[10px] sm:text-xs text-gray-600">
-              {item.label}
-            </span>
           </p>
+          <span
+            className={`text-[10px] sm:text-xs md:text-sm ${
+              variant === "primary" ? "text-black" : "text-white"
+            }`}
+          >
+            {item.label}
+          </span>
         </div>
       ))}
     </div>

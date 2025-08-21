@@ -1,4 +1,23 @@
-[
+export type Product = {
+productId: number;
+title: string;
+author: string;
+imageUrl: string;
+price: string;
+productSlug: string;
+discription: string;
+category: string[];
+FeaturedBooks: boolean;
+BestSellers: boolean;
+MostViewed: boolean;
+stock: number;
+DealsOfTheWeek: boolean;
+color: string[];
+sale: boolean;
+};
+
+
+export const products: Product[] = [
   {
     "productId": 1,
     "title": "Mystery Of The Dark Village",
