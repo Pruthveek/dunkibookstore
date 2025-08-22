@@ -1,4 +1,4 @@
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 import AboutUsHeroSection from "@/components/modules/aboutus/AboutUsHeroSection";
 import ClientTestimonial from "@/components/modules/aboutus/ClientTestimonial";
 import JoinComunity from "@/components/modules/aboutus/JoinComunity";

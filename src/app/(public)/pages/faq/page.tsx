@@ -1,6 +1,6 @@
 "use client";
 
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 import React, { useState } from "react";
 import faqData from "@/data/faqData.json";
 import FAQSection from "@/components/common/faq/FAQSection";
@@ -48,7 +48,7 @@ export default function FaqPAge() {
       <div className="section-container">
         Don’t worry about anything, your Support experts will solve your hesitation or query.
         <br></br>
-        <Link href="/" className="underline hover:text-red-600 transform ease-in-out duration-1000">Schedule A Visit</Link>
+        <Link href="/" className="underline hover:text-red-600 transform ease-in-out duration-500">Schedule A Visit</Link>
       </div>
     </section>
   );

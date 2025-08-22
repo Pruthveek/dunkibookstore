@@ -1,6 +1,6 @@
 "use client";
 import AuthForm from "@/components/common/auth/AuthForm";
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 
 export default function LoginPage() {
   const handleLogin = (e: React.FormEvent) => {

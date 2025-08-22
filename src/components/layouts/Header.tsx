@@ -154,7 +154,7 @@ export default function Header() {
                         >
                           
                           <span
-                            className={`ml-2 text-xl transition-transform duration-1000 ease-in-out ${
+                            className={`ml-2 text-xl transition-transform duration-500 ease-in-out ${
                               openSubmenu === item.label
                                 ? "rotate-180"
                                 : "rotate-0"
@@ -231,7 +231,7 @@ export default function Header() {
                   >
                     Account
                     <span
-                      className={`ml-2 text-xl transition-transform duration-1000 ease-in-out ${
+                      className={`ml-2 text-xl transition-transform duration-500 ease-in-out ${
                         openSubmenu === "Account" ? "rotate-180" : "rotate-0"
                       }`}
                     >

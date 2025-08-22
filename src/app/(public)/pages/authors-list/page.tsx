@@ -1,6 +1,6 @@
 import React from "react";
 import AuthorData from "@/data/authorData.json";
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 import LimitedEditionComponent from "@/components/modules/home/LimitedEditionComponent";
 import AuthorGrid from "@/components/common/home/AuthorGrid";
 export default function page() {

@@ -26,7 +26,7 @@ export default function OnlineBookCopy() {
             </CustomButton>
           </Link>
         </div>
-        <div className="flex justify-center md:size-[350px] lg:size-[500px] group-hover:scale-110 ease-in-out duration-1000">
+        <div className="flex justify-center md:size-[350px] lg:size-[500px] group-hover:scale-110 ease-in-out duration-500">
           <Image
             src="/Images/sthm.png"
             alt="sthm"

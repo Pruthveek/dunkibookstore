@@ -5,7 +5,7 @@ import blogData from "@/data/blogData.json";
 import BlogCard from "@/components/common/blog/BlogCard";
 import BlogSidebar from "@/components/common/blog/BlogSidebar";
 import { useParams, useRouter } from "next/navigation";
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 
 type Comment = {
   commentId: number;

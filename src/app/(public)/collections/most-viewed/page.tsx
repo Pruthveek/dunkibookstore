@@ -5,7 +5,7 @@ import FiltersSidebar, { type FiltersState } from "@/components/common/shop/filt
 import SortBar from "@/components/common/shop/SortBar";
 import Pagination from "@/components/common/shop/Pagination";
 import { buildCounts, parsePriceGBP, sortProducts, type SortKey } from "@/lib/products";
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 import CollectionSection from "@/components/modules/shop/CollectionSection";
 import ProductCard from "@/components/common/home/productbookcard";
 import ShopAtInstagram from "@/components/modules/home/ShopAtInstagram";

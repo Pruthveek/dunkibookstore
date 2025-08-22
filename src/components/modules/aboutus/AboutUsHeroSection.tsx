@@ -22,7 +22,7 @@ export default function AboutUsHeroSection() {
       bg-black
       md:top-auto md:left-auto md:-bottom-10 md:-right-16 md:translate-x-0 md:translate-y-0 
       md:bg-red-600 grid justify-center items-center text-center rounded-full
-      w-40 h-40 sm:w-56 sm:h-56 transform ease-in-out duration-1000
+      w-40 h-40 sm:w-56 sm:h-56 transform ease-in-out duration-500
     "
           >
             <p className="text-white text-sm sm:text-base leading-tight">

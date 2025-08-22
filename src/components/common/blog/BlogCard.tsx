@@ -45,7 +45,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, readmorebutton }) => {
           src={blog.image}
           alt={blog.title}
           fill
-          className="bg-cover group-hover:scale-110 ease-in-out duration-1000"
+          className="bg-cover group-hover:scale-110 ease-in-out duration-500"
         />
       </div>
 
@@ -59,7 +59,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, readmorebutton }) => {
 
       {isreadmorebutton ? (
         <div className="mb-8">
-          <h3 className="mt-2 mb-4 text-xl hover:text-red-600 transform ease-in-out duration-1000">
+          <h3 className="mt-2 mb-4 text-xl hover:text-red-600 transform ease-in-out duration-500">
             {blog.title}
           </h3>
           <h3 className="my-2 text-sm gap-2">
@@ -78,7 +78,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, readmorebutton }) => {
         </div>
       ) : (
         <div>
-          <h3 className="mb-4 text-xl hover:text-red-600 transform ease-in-out duration-1000">
+          <h3 className="mb-4 text-xl hover:text-red-600 transform ease-in-out duration-500">
             {blog.title}
           </h3>
         </div>

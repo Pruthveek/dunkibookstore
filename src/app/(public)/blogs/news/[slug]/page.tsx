@@ -3,7 +3,7 @@ import { useParams, useRouter } from "next/navigation";
 import blogData from "@/data/blogData.json";
 import BlogSidebar from "@/components/common/blog/BlogSidebar";
 import { useEffect, useState } from "react";
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 import BlogDetailCard from "@/components/common/blog/BlogDetailCard"; // ✅ import new component
 
 type Comment = {

@@ -9,7 +9,7 @@ export default function SalesImageComponent() {
           src="/Images/chbnr.jpg"
           alt="bgimage1"
           fill
-          className="hover:scale-110 ease-in-out duration-1000"
+          className="hover:scale-110 ease-in-out duration-500"
         />
       </div>
       <div className="col-span-2 relative w-full h-40  md:h-96 overflow-hidden">
@@ -17,7 +17,7 @@ export default function SalesImageComponent() {
           src="/Images/chb2_8cdf0738-7bb1-442e-b0d0-b40e1d298793.jpg"
           alt="bgimage2"
           fill
-          className=" hover:scale-110 ease-in-out duration-1000"
+          className=" hover:scale-110 ease-in-out duration-500"
         />
       </div>
     </div>

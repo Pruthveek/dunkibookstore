@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import BreadCrumb from "@/components/common/BreadCrumb";
+import BreadCrumb from "@/components/layouts/BreadCrumb";
 import CustomButton from "@/components/ui/Buttons";
 export default function NotFound() {
   return (
