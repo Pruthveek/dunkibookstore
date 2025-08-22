@@ -8,7 +8,7 @@ const ProductDetailBottom = () => {
   const [activeTab, setActiveTab] = useState("Description");
 
   return (
-    <section className="section-container2 mx-auto border border-gray-300 py-10 my-10">
+    <section className="section-container2 mx-4 md:mx-auto border border-gray-300 py-10 my-10">
       <div className="flex flex-wrap gap-2">
         {tabs.map((tab) => (
           <button

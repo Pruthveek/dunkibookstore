@@ -242,7 +242,7 @@ body {
   @apply w-full flex flex-col items-center max-w-7xl px-4 my-10;
 }
 .section-container2 {
-  @apply max-w-7xl mx-auto px-4 my-10;
+  @apply max-w-7xl mx-auto px-4;
 }
 .text-outline {
   color: transparent; 
