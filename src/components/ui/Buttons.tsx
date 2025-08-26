@@ -11,7 +11,7 @@ type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 const baseStyles = " font-base transition duration-500 ease-in-out cursor-pointer";
 
 const variantStyles = {
-  primary: "bg-red-600 text-white hover:bg-white hover:text-black",
+  primary: "bg-red-600 text-white hover:bg-white hover:text-black ",
   third:"bg-black text-white hover:bg-white hover:text-black",
   secondary: "bg-black text-white hover:bg-red-600 hover:text-white transform ease-in-out duration-500",
   opposithover: "bg-red-600 text-white hover:bg-black",

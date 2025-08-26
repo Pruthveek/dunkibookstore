@@ -7,10 +7,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 
 import OfferBar from "@/components/common/header/OfferBar";
-import SearchBox from "@/components/common/header/SearchBox";
 import { HeaderIcons } from "@/components/common/header/Headericon";
 import NavbarMenu from "@/components/common/header/NavbarMenu";
 import menuData from "@/data/menuData.json";
+import SearchBox from "../common/home/SearchBox";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

@@ -6,11 +6,15 @@ import { CirclePlus, Eye, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Redux
+import { addToCart } from "@/lib/features/cartSlice";
+import { useAppDispatch } from "@/lib/store";
+
 type ProductCardProps = {
   title: string;
   author: string;
   imageUrl: string;
-  price: string;
+  price: number;
   productSlug: string;
   discription?: string;
   productId?: number;
@@ -26,11 +30,26 @@ const ProductCard: React.FC<ProductCardProps> = ({
   productSlug,
   discription,
   sale,
+  productId,
   layout = "vertical",
 }) => {
+  const dispatch = useAppDispatch();
+
   const isVertical = layout === "vertical";
   const isHorizontal = layout === "horizontal";
   const isDetailHorizontal = layout === "detailhorizontal";
+
+  // Create a cart item payload with default quantity 1
+  const buildCartItem = () => ({
+    id: String(productId ?? productSlug),
+    title,
+    author,
+    imageUrl,
+    price: Number(price),
+    productSlug,
+    quantity: 1,
+    variant: "",
+  });
 
   return (
     <div
@@ -92,7 +111,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               <Heart className="w-5 h-5" />
             </button>
             <button
-              onClick={() => console.log("Add to Cart:", productSlug)}
+              onClick={() => dispatch(addToCart(buildCartItem()))}
               className="p-2 rounded-md bg-white hover:bg-red-600 hover:text-white transition"
               title="Add to Cart"
             >
@@ -123,19 +142,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {isDetailHorizontal ? (
           <>
             <p className="text-sm mb-2">{discription}</p>
-            <p className="text-lg font-semibold text-red-600">{price}</p>
+            <p className="text-lg font-semibold text-red-600">&pound;{price}</p>
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 mt-3">
-              <CustomButton
-                variant="secondary"
-                size="lg"
-                
-              >
+              <CustomButton variant="secondary" size="lg">
                 <Heart size={26} />
               </CustomButton>
               <CustomButton
                 variant="secondary"
                 size="lg"
-                
+                onClick={() => dispatch(addToCart(buildCartItem()))}
               >
                 Add To Cart
               </CustomButton>
@@ -143,7 +158,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </>
         ) : (
           <>
-            <p className="text-base mt-1 text-red-600">{price}</p>
+            <p className="text-base mt-1 text-red-600">&pound;{price}</p>
           </>
         )}
       </div>

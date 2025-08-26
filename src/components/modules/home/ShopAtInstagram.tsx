@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
-import productData from "@/data/productList.json";
+import { products as productsData } from "@/data/products";
+import type { Product } from "@/data/products";
 import { useEffect, useState } from "react";
 import ShopInstagramCard from "@/components/common/home/ShopInstagramCard";
 export default function ShopAtInstagram() {
-  const [bookData, setBookData] = useState<typeof productData>([]);
+  const [bookData, setBookData] = useState<Product[]>([]);
   useEffect(() => {
-    setBookData(productData);
+    setBookData(productsData);
   }, []);
   return (
     <div className="section-container2 relative group/arrow my-10">

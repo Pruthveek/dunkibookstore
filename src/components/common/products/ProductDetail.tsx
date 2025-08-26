@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useAppDispatch } from "@/lib/store";
+import { addToCart } from "@/lib/features/cartSlice";
 import { Product } from "@/data/products";
 
 // Swiper
@@ -21,27 +23,43 @@ type Props = {
 };
 
 export default function ProductDetail({ product }: Props) {
+  const dispatch = useAppDispatch();
+
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [selectedColor, setSelectedColor] = useState(product.color[0]);
   const [quantity, setQuantity] = useState(1);
   const sizes = ["S", "M", "XS"];
   const [selected, setSelected] = useState("S");
 
-  // Refs for custom buttons
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id: String(product.productId),
+        title: product.title,
+        author: product.author,
+        productSlug: product.productSlug,
+        imageUrl: product.images[0]?.original ?? "/placeholder.png",
+        price: Number(product.price),
+        color: selectedColor,
+        size: selected,
+        quantity,
+        variant: ""
+      })
+    );
+  };
+
   return (
     <section className="section-container2 mx-4 md:mx-auto px-2 md:px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-      {/* Left - Product Images */}
+      {/* LEFT - Product Images */}
       <div>
-        {/* Main Swiper */}
         <Swiper
           spaceBetween={10}
           navigation={false}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2"
         >
           {product.images.map((img, i) => (
             <SwiperSlide key={i}>
@@ -50,7 +68,7 @@ export default function ProductDetail({ product }: Props) {
                 alt={product.title}
                 width={400}
                 height={400}
-                className="object-contain w-full h-auto "
+                className="object-contain w-full h-auto"
               />
             </SwiperSlide>
           ))}
@@ -63,8 +81,8 @@ export default function ProductDetail({ product }: Props) {
             spaceBetween={8}
             slidesPerView={3}
             breakpoints={{
-              640: { slidesPerView: 4 },
-              1024: { slidesPerView: 5 },
+              640: { slidesPerView: 3 },
+              1024: { slidesPerView: 4 },
             }}
             loop={true}
             freeMode={true}
@@ -103,9 +121,8 @@ export default function ProductDetail({ product }: Props) {
             className="absolute top-1/2 left-0 -translate-y-1/2 bg-black/60 p-1.5 sm:p-2 rounded-full text-white 
                        opacity-0 group-hover/arrow:opacity-100 transition hover:bg-red-600 cursor-pointer z-10"
           >
-            <ChevronLeft size={20} className="sm:size-24" />
+            <ChevronLeft/>
           </button>
-
           <button
             ref={nextRef}
             type="button"
@@ -113,23 +130,22 @@ export default function ProductDetail({ product }: Props) {
             className="absolute top-1/2 right-0 -translate-y-1/2 bg-black/60 p-1.5 sm:p-2 rounded-full text-white 
                        opacity-0 group-hover/arrow:opacity-100 transition hover:bg-red-600 cursor-pointer z-10"
           >
-            <ChevronRight size={20} className="sm:size-24" />
+            <ChevronRight />
           </button>
         </div>
       </div>
 
-      {/* Right - Product Details */}
+      {/* RIGHT - Product Details */}
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full"
       >
-        {/* Title + Price */}
         <h2 className="text-2xl sm:text-3xl">{product.title}</h2>
         <p className="text-lg sm:text-xl mt-1">by {product.author}</p>
         <p className="text-lg sm:text-xl text-red-600 mt-2 font-medium">
-          {product.price}
+          &pound;{Number(product.price).toFixed(2)}
         </p>
         <p className="text-sm sm:text-base mt-1">
           Availability: {product.stock} left in stock
@@ -164,18 +180,11 @@ export default function ProductDetail({ product }: Props) {
               <button
                 key={c}
                 onClick={() => setSelectedColor(c)}
-                className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full border"
+                className={`relative w-7 h-7 sm:w-8 sm:h-8 rounded-full border ${
+                  selectedColor === c ? "ring-2 ring-red-600" : ""
+                }`}
                 style={{ backgroundColor: c.toLowerCase() }}
-              >
-                {selectedColor === c && (
-                  <Image
-                    src="/Images/product/correct-success-tick-svgrepo-com.svg"
-                    alt="tick"
-                    fill
-                    className="object-center"
-                  />
-                )}
-              </button>
+              />
             ))}
           </div>
         </div>
@@ -218,7 +227,12 @@ export default function ProductDetail({ product }: Props) {
               +
             </button>
           </div>
-          <CustomButton variant="gray" size="xl" className="w-full">
+          <CustomButton
+            variant="gray"
+            size="xl"
+            className="w-full"
+            onClick={handleAddToCart}
+          >
             ADD TO CART
           </CustomButton>
         </div>

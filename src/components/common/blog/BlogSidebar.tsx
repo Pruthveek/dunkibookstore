@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
-import SearchBox from "@/components/common/header/SearchBox";
+
 import Link from "next/link";
 import Image from "next/image";
 import { CircleFadingArrowUp } from "lucide-react";
 import { useRouter } from "next/navigation";
+import SearchBox from "../home/SearchBox";
 
 type Comment = {
   commentId: number;

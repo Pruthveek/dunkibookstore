@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/globals.css";
 import Providers from "@/app/(public)/cart/providers";
+import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,14 +11,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <body>
         <Providers>
-          <main>{children}</main>
+          <main><Header/>
+                    {children}
+                  <Footer/></main>
         </Providers>
       </body>
     </html>

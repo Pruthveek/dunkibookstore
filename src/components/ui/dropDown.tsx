@@ -8,7 +8,6 @@ interface DropdownProps {
 export const Dropdown: React.FC<DropdownProps> = ({ trigger, children, align = "right" }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target as Node)) {

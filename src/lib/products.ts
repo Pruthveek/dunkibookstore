@@ -1,9 +1,14 @@
 import { Product, products } from "@/data/products";
 
-export const parsePriceGBP = (price: string): number => {
-  // Remove anything that's not a digit or decimal point
-  const cleaned = price.replace(/[^\d.]/g, "");
-  return parseFloat(cleaned || "0");
+// ✅ handle both string and number
+export const parsePriceGBP = (price: string | number): number => {
+  if (typeof price === "number") return price;
+  if (typeof price === "string") {
+    // Remove currency symbols/commas etc.
+    const cleaned = price.replace(/[^\d.]/g, "");
+    return parseFloat(cleaned || "0");
+  }
+  return 0;
 };
 
 export type Counts = {
@@ -65,9 +70,13 @@ export const sortProducts = (list: Product[], sort: SortKey): Product[] => {
     case "alpha-desc":
       return cloned.sort((a, b) => b.title.localeCompare(a.title));
     case "price-asc":
-      return cloned.sort((a, b) => parsePriceGBP(a.price) - parsePriceGBP(b.price));
+      return cloned.sort(
+        (a, b) => parsePriceGBP(a.price) - parsePriceGBP(b.price)
+      );
     case "price-desc":
-      return cloned.sort((a, b) => parsePriceGBP(b.price) - parsePriceGBP(a.price));
+      return cloned.sort(
+        (a, b) => parsePriceGBP(b.price) - parsePriceGBP(a.price)
+      );
     default:
       return cloned;
   }

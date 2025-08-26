@@ -2,14 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/common/home/productbookcard";
-import productData from "@/data/productList.json";
+import { products as productsData } from "@/data/products";
+import type { Product } from "@/data/products";
 
 export default function Products() {
-  const [products, setProducts] = useState<typeof productData>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [activeFilter, setActiveFilter] = useState<"FeaturedBooks" | "BestSellers" | "MostViewed">("FeaturedBooks");
 
   useEffect(() => {
-    setProducts(productData);
+    setProducts(productsData);
   }, []);
 
   const filteredProducts = products.filter((product) => product[activeFilter]);

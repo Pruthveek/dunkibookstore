@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import BookData from "@/data/productList.json";
+import { products as productsData } from "@/data/products";
+import type { Product } from "@/data/products";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -9,10 +10,10 @@ import ProductCard from "@/components/common/home/productbookcard";
 import Image from "next/image";
 
 export default function AuthorOfTheMonth() {
-  const [bookData, setBookData] = useState<typeof BookData>([]);
+  const [bookData, setBookData] = useState<Product[]>([]);
 
   useEffect(() => {
-    setBookData(BookData);
+    setBookData(productsData);
   }, []);
 
   return (

@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/common/home/productbookcard";
-import productData from "@/data/productList.json";
+import { products as productsData } from "@/data/products";
+import type { Product } from "@/data/products";
 import NewBookBannerCard from "@/components/common/home/NewBookBannerCard";
 import newYearBookData from "@/data/newYearBookData.json";
 
@@ -10,13 +11,13 @@ type NewBooksProp = {
 };
 
 const NewBooks: React.FC<NewBooksProp> = ({ layout }) => {
-  const [products, setProducts] = useState<typeof productData>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [bannerData, setBannerData] = useState<
     typeof newYearBookData.pagev1 | typeof newYearBookData.pagev2
   >([]);
 
   useEffect(() => {
-    setProducts(productData);
+    setProducts(productsData);
     if (layout === "homev3") {
       setBannerData(newYearBookData.pagev2);
     } else {

@@ -125,7 +125,7 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
               className="overflow-hidden mt-2 text-sm"
             >
               <div className="flex items-center gap-2">
-                <span>£</span>
+                <span>&pound;</span>
                 <input
                   type="number"
                   placeholder={`${Math.floor(counts.price.min)}`}
@@ -138,7 +138,7 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
                   }
                 />
                 <span>to</span>
-                <span>£</span>
+                <span>&pound;</span>
                 <input
                   type="number"
                   placeholder={`${Math.ceil(counts.price.max)}`}

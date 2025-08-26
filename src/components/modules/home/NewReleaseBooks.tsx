@@ -8,7 +8,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
-import productData from "@/data/productList.json";
+import { products as productsData } from "@/data/products";
+import type { Product } from "@/data/products";
 import ProductCard from "@/components/common/home/productbookcard";
 
 type SliderProductComponentProps = {
@@ -16,13 +17,13 @@ type SliderProductComponentProps = {
 };
 
 const NewReleaseBooks: React.FC<SliderProductComponentProps> = ({ title }) => {
-  const [products, setProducts] = useState<typeof productData>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
-    setProducts(productData);
+    setProducts(productsData);
   }, []);
 
   return (

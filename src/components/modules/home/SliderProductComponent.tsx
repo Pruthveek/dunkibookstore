@@ -8,7 +8,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
 import ProductCard from "@/components/common/home/productbookcard";
-import productData from "@/data/productList.json";
+import { products as productsData } from "@/data/products";
+import type { Product } from "@/data/products";
 import CustomButton from "@/components/ui/Buttons";
 
 type SliderProductComponentProps = {
@@ -20,7 +21,7 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
   title,
   layout,
 }) => {
-  const [products, setProducts] = useState<typeof productData>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
@@ -28,7 +29,7 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
   const ishomev4 = layout === "homev4";
 
   useEffect(() => {
-    setProducts(productData);
+    setProducts(productsData);
   }, []);
 
   const filteredProducts = products.filter((product) => product.DealsOfTheWeek);
