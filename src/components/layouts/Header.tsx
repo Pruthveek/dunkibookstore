@@ -12,7 +12,17 @@ import NavbarMenu from "@/components/common/header/NavbarMenu";
 import menuData from "@/data/menuData.json";
 import SearchBox from "../common/home/SearchBox";
 
-export default function Header() {
+type HeaderProps = {
+  variant?: "default" | "second" | "third";
+  offerBarBg?: string;
+  offerBarText?: string;
+};
+
+export default function Header({
+  variant = "default",
+  offerBarBg = "#282828",
+  offerBarText = "white",
+}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
@@ -28,17 +38,17 @@ export default function Header() {
   }, []);
 
   return (
-    <header >
+    <header>
       {/* Desktop Header */}
       <div className="hidden lg:block fixed top-0 left-0 right-0 z-50 bg-white">
-        {!isScrolled && (
+        {variant === "default" && !isScrolled && (
           <div>
             <OfferBar
               message="Free express shipping with orders over $150"
               linkText="Shop Now"
               linkHref="/offers"
-              bgColor="#282828"
-              textColor="white"
+              bgColor={offerBarBg}
+              textColor={offerBarText}
             />
             <div className="px-10 lg:px-20 flex justify-between items-center py-4">
               <Image
@@ -47,7 +57,7 @@ export default function Header() {
                 width={130}
                 height={37}
               />
-              <SearchBox placeholder="I'm looking for…" buttontext="Search"/>
+              <SearchBox placeholder="I'm looking for…" buttontext="Search" />
               <HeaderIcons />
               <button
                 onClick={() => setSidebarOpen(true)}
@@ -65,7 +75,56 @@ export default function Header() {
           </div>
         )}
 
-        {/* Sticky Header */}
+        {variant === "second" && !isScrolled && (
+          <>
+            <OfferBar
+              message="Free express shipping with orders over $150"
+              linkText="Shop Now"
+              linkHref="/offers"
+              bgColor={offerBarBg}
+              textColor={offerBarText}
+            />
+            <div className="px-10 lg:px-20 flex justify-between items-center pt-6">
+              <Image
+                src="/Images/logo1_130x@2x.png"
+                alt="Logo"
+                width={130}
+                height={37}
+              />
+              <NavbarMenu />
+              <HeaderIcons />
+            </div>
+          </>
+        )}
+
+        {variant === "third" && !isScrolled && (
+          <div>
+            <div className="px-10 lg:px-20 flex justify-between items-center pt-4">
+              <Image
+                src="/Images/logo1_130x@2x.png"
+                alt="Logo"
+                width={130}
+                height={37}
+              />
+              <SearchBox placeholder="I'm looking for…" buttontext="Search" />
+              <HeaderIcons />
+              <button
+                onClick={() => setSidebarOpen(true)}
+                className="ml-3 lg:hidden"
+              >
+                <Menu size={28} />
+              </button>
+            </div>
+            <div className="px-10 lg:px-20 py-6 flex items-center justify-between border-t border-gray-100">
+              <NavbarMenu />
+              <div className="hover:text-red-600 text-2xl inline-flex gap-2 items-center">
+                <Headset /> (+01)-800-3456
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Sticky Header - same for all variants */}
         <div
           className={`fixed top-0 left-0 right-0 py-2 bg-white shadow-md z-50 transition-all duration-300 transform ${
             isScrolled
@@ -91,7 +150,8 @@ export default function Header() {
           </div>
         </div>
       </div>
-      {/* Mobile Header */}
+
+      {/* Mobile Header (always same) */}
       <div className="lg:hidden w-screen flex justify-between items-center px-4 py-3 border-b border-gray-300 fixed top-0 left-0 right-0 bg-white z-50">
         <Image
           src="/Images/logo1_130x@2x.png"
@@ -107,7 +167,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Top Drawer */}
+      {/* Mobile Drawer (unchanged) */}
       <AnimatePresence>
         {sidebarOpen && (
           <>
@@ -142,27 +202,26 @@ export default function Header() {
                       <div>
                         <div className="flex justify-between items-center text-xl">
                           <Link
-                        href={item.link || "#"}
-                        className="block py-2 text-xl"
-                        onClick={() => setSidebarOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                        <button
-                          onClick={() => toggleSubmenu(item.label)}
-                          className="flex justify-between items-center py-2 text-left "
-                        >
-                          
-                          <span
-                            className={`ml-2 text-xl transition-transform duration-500 ease-in-out ${
-                              openSubmenu === item.label
-                                ? "rotate-180"
-                                : "rotate-0"
-                            }`}
+                            href={item.link || "#"}
+                            className="block py-2 text-xl"
+                            onClick={() => setSidebarOpen(false)}
                           >
-                            {openSubmenu === item.label ? "−" : "+"}
-                          </span>
-                        </button>
+                            {item.label}
+                          </Link>
+                          <button
+                            onClick={() => toggleSubmenu(item.label)}
+                            className="flex justify-between items-center py-2 text-left "
+                          >
+                            <span
+                              className={`ml-2 text-xl transition-transform duration-500 ease-in-out ${
+                                openSubmenu === item.label
+                                  ? "rotate-180"
+                                  : "rotate-0"
+                              }`}
+                            >
+                              {openSubmenu === item.label ? "−" : "+"}
+                            </span>
+                          </button>
                         </div>
 
                         <div

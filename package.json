@@ -24,6 +24,7 @@
     "react-rater": "^6.0.5",
     "react-redux": "^9.2.0",
     "react-slick": "^0.31.0",
+    "redux-persist": "^6.0.0",
     "reselect": "^5.1.1",
     "rsuite": "^5.83.3",
     "slick-carousel": "^1.8.1",

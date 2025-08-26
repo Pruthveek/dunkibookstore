@@ -17,7 +17,7 @@
       },
       {
         "label": "Home Demo v4",
-        "link": "homedemov4"
+        "link": "/homedemov4"
       }
     ]
   },
@@ -47,7 +47,7 @@
       ],
       "categories": {
         "title": "All Collections",
-        "link": "/collections",
+        "link": "/collections/all",
         "items": [
           { "label": "Romance", "link": "/collections/featured-books" },
           { "label": "History", "link": "/collections/best-sellers" },

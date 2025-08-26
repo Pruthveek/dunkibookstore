@@ -1,0 +1,95 @@
+{
+  "variant1": {
+    "about": {
+      "title": "About Info",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor inci ut labore et dolore.",
+      "contacts": [
+        { "icon": "FaMapMarkerAlt", "text": "Addresss: 123 Pall Mall, London England" },
+        { "icon": "FaEnvelope", "text": "Email: hello@example.com" },
+        { "icon": "FaPhoneAlt", "text": "Phone: (012) 345 6789" }
+      ]
+    },
+    "columns": [
+      {
+        "title": "Information",
+        "links": [
+          { "label": "Contact us", "url": "/pages/contact-us" },
+          { "label": "About us", "url": "/pages/about-us" },
+          { "label": "Term & Conditions", "url": "/" },
+          { "label": "Gift Vouchers", "url": "/" },
+          { "label": "BestSellers", "url": "collections/best-sellers" }
+        ]
+      },
+      {
+        "title": "Quick Links",
+        "links": [
+          { "label": "My Account", "url": "/" },
+          { "label": "Shopping cart", "url": "/cart" },
+          { "label": "Wishlist", "url": "/" },
+          { "label": "Custom Link", "url": "/" },
+          { "label": "Help", "url": "/" }
+        ]
+      },
+      {
+        "title": "Follow Us On",
+        "socials": [
+          { "icon": "FaFacebookF", "label": "Facebook", "url": "https://facebook.com" },
+          { "icon": "FaTwitter", "label": "Twitter", "url": "https://twitter.com" },
+          { "icon": "FaInstagram", "label": "Instagram", "url": "https://instagram.com" },
+          { "icon": "FaYoutube", "label": "Youtube", "url": "https://youtube.com" }
+        ]
+      }
+    ]
+  },
+  "variant2": {
+    "columns": [
+      {
+        "title": "Need Help",
+        "links": [
+          { "label": "Shipping & Returns", "url": "/shipping-returns" },
+          { "label": "Secure Shopping", "url": "/secure-shopping" },
+          { "label": "Affiliates", "url": "/affiliates" },
+          { "label": "International Shipping", "url": "/international-shipping" },
+          { "label": "Contact", "url": "/contact" }
+        ]
+      },
+      {
+        "title": "Categories",
+        "links": [
+          { "label": "Contact us", "url": "/pages/contact-us" },
+          { "label": "About us", "url": "/pages/about-us" },
+          { "label": "Term & Conditions", "url": "/" },
+          { "label": "Gift Vouchers", "url": "/" },
+          { "label": "BestSellers", "url": "collections/best-sellers" }
+        ]
+      },
+      {
+        "title": "Information",
+        "links": [
+          { "label": "My Account", "url": "/" },
+          { "label": "Shopping cart", "url": "/cart" },
+          { "label": "Wishlist", "url": "/" },
+          { "label": "Custom Link", "url": "/" },
+          { "label": "Help", "url": "/" }
+        ]
+      },
+      {
+        "title": "Our Newsletter",
+        "newsletter": {
+          "description": "Sign up for our latest news and offers.",
+          "placeholder": "email@example.com",
+          "buttonText": "Subscribe"
+        }
+      }
+    ]
+  },
+  "bottom": {
+    "text": "Copyright Dunki | Built with Dunki by Team90Degree",
+    "image": {
+      "src": "/Images/footer_img_large.png",
+      "alt": "footer_img_large",
+      "width": 384,
+      "height": 26
+    }
+  }
+}

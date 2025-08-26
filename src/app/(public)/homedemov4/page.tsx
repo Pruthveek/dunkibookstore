@@ -12,7 +12,11 @@ import brandLogos from "@/data/brandLogoData.json";
 export default function Home() {
   return (
     <div>
-      <Headers />
+      <Headers
+        variant="second" 
+        offerBarBg="#E7000B" 
+        offerBarText="white" 
+      />
       <CategoryHeroSection />
       <FeatureList layout={"icon"}/>
       <SliderProductComponent title="Daily Deals" layout={"homev4"}/>

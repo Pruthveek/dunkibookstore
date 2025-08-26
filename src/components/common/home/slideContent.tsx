@@ -73,7 +73,7 @@ const Slide: React.FC<SlideProps> = ({
         <div
           className={`flex justify-center 
           ${
-            ishomev3 ? "md:h-[600px] md:w-[500px]" : "md:h-[500px] md:w-[500px]"
+            ishomev3 ? "md:h-[600px] md:w-[500px]" : "md:h-[600px] md:w-[500px]"
           }
           ${
             isreverse

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export type CategoryCardProps = {
-  slug: string;
+  slug?: string;
   title: string;
   price: string;
   bgImage: string;
@@ -13,7 +13,6 @@ export type CategoryCardProps = {
 };
 
 export default function CategoryCard({
-  slug,
   title,
   price,
   bgImage,
@@ -30,7 +29,8 @@ export default function CategoryCard({
 
   return (
     <Link
-      href={`/${slug}`}
+      // href={`/${slug}`}
+      href={`/collections/all`}
       className={`group relative overflow-hidden h-shadow-md hover:shadow-lg transition-all duration-500 ${heightClass}`}
     >
       <Image

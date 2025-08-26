@@ -1,77 +1,212 @@
+"use client";
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import Link from "next/link";
 import Image from "next/image";
-export default function Footer() {
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import footerDataJson from "@/data/footerData.json";
+
+type FooterProps = {
+  variant?: "variant1" | "variant2";
+  bgColor?: string;
+  textColor?: string;
+};
+
+const icons = {
+  FaFacebookF: <FaFacebookF />,
+  FaTwitter: <FaTwitter />,
+  FaInstagram: <FaInstagram />,
+  FaYoutube: <FaYoutube />,
+  FaMapMarkerAlt: <FaMapMarkerAlt />,
+  FaEnvelope: <FaEnvelope />,
+  FaPhoneAlt: <FaPhoneAlt />,
+} as const;
+
+type Contact = {
+  icon: keyof typeof icons;
+  text: string;
+};
+
+type LinkItem = {
+  label: string;
+  url: string;
+};
+
+type SocialItem = {
+  icon: keyof typeof icons;
+  label: string;
+  url: string;
+};
+
+type Newsletter = {
+  description: string;
+  placeholder: string;
+  buttonText: string;
+};
+
+type Column = {
+  title: string;
+  links?: LinkItem[];
+  socials?: SocialItem[];
+  newsletter?: Newsletter;
+};
+
+type About = {
+  title: string;
+  description: string;
+  contacts: Contact[];
+};
+
+type FooterVariant1 = {
+  about: About;
+  columns: Column[];
+};
+
+type FooterVariant2 = {
+  columns: Column[];
+};
+
+type Bottom = {
+  text: string;
+  image: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
+};
+
+type FooterData = {
+  variant1: FooterVariant1;
+  variant2: FooterVariant2;
+  bottom: Bottom;
+};
+
+function hasAbout(d: FooterVariant1 | FooterVariant2): d is FooterVariant1 {
+  return (d as FooterVariant1).about !== undefined;
+}
+
+const Footer: React.FC<FooterProps> = ({
+  variant = "variant1",
+  bgColor = "bg-[#222]",
+  textColor = "text-white",
+}) => {
+  const footerData = footerDataJson as FooterData;
+  const data =
+    variant === "variant1" ? footerData.variant1 : footerData.variant2;
+  const bottom = footerData.bottom;
+
   return (
-    <footer className="bg-[#222] text-white px-10 ">
+    <footer
+      className={`${bgColor} ${textColor} py-12 border-t border-gray-200 `}
+    >
+      <div className="grid grid-cols-1 px-4 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {/* About Info (only in variant1) */}
+        {hasAbout(data) && (
+          <div>
+            <h3 className="text-2xl mb-4">{data.about.title}</h3>
+            <p className="text-md mb-4">{data.about.description}</p>
+            <ul className="space-y-2 text-md">
+              {data.about.contacts.map((contact, idx) => (
+                <li key={idx} className="flex items-center gap-2">
+                  {icons[contact.icon]} <span>{contact.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-      <div className=" mx-auto py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-        
-        <div className="col-span-2 md:col-span-1">
-          <h2 className="text-xl  mb-4">About Info</h2>
-          <p className="mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor inci ut labore et dolore.
-          </p>
-          <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2">
-              <FaMapMarkerAlt /> Addresss: 123 Pall Mall, London England
-            </li>
-            <li className="flex items-center gap-2">
-              <FaEnvelope /> Email: hello@example.com
-            </li>
-            <li className="flex items-center gap-2">
-              <FaPhoneAlt /> Phone: (012) 345 6789
-            </li>
-          </ul>
-        </div>
+        {/* Columns */}
+        {data.columns.map((col, idx) => (
+          <div key={idx}>
+            <h3 className="text-2xl mb-4">{col.title}</h3>
 
-        <div>
-          <h2 className="text-lg  mb-4">Information</h2>
-          <ul className="space-y-2 text-sm">
-            <li>Contact us</li>
-            <li>About us</li>
-            <li>Term & Conditions</li>
-            <li>Gift Vouchers</li>
-            <li>BestSellers</li>
-          </ul>
-        </div>
+            {/* Links */}
+            {col.links && (
+              <ul className="space-y-2 text-md">
+                {col.links.map((link, i) => (
+                  <li key={i}>
+                    <Link
+                      href={link.url}
+                      className="hover:text-red-600 transition"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
 
-        <div>
-          <h2 className="text-lg  mb-4">Quick Links</h2>
-          <ul className="space-y-2 text-sm">
-            <li>My Account</li>
-            <li>Shopping cart</li>
-            <li>Wishlist</li>
-            <li>Custom Link</li>
-            <li>Help</li>
-          </ul>
-        </div>
+            {/* Socials */}
+            {col.socials && (
+              <div className="space-y-2 mt-4">
+                {col.socials.map((social, i) => (
+                  <Link
+                    key={i}
+                    href={social.url}
+                    aria-label={social.label}
+                    className="hover:text-red-600 text-md flex items-center gap-2"
+                  >
+                    {icons[social.icon]}{" "}
+                    <span className="text-md">{social.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
 
-        <div>
-          <h2 className="text-lg  mb-4">Follow Us On</h2>
-          <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2">
-              <FaFacebookF /> Facebook
-            </li>
-            <li className="flex items-center gap-2">
-              <FaTwitter /> Twitter
-            </li>
-            <li className="flex items-center gap-2">
-              <FaInstagram /> Instagram
-            </li>
-            <li className="flex items-center gap-2">
-              <FaYoutube /> Youtube
-            </li>
-          </ul>
-        </div>
+            {/* Newsletter (variant2 only) */}
+            {col.newsletter && (
+              <div className="mt-4 space-y-2 ">
+                <p className="text-md mb-3">{col.newsletter.description}</p>
+                <div className="flex border">
+                  <input
+                    type="email"
+                    placeholder={col.newsletter.placeholder}
+                    className="px-3 py-2 text-black rounded-l w-full text-md"
+                  />
+                  <button className="bg-black text-white px-4 py-2 text-md">
+                    {col.newsletter.buttonText}
+                  </button>
+                </div>
+                <p className="text-md mb-3">Secured Payment Gateways</p>
+                <Image
+                  src={bottom.image.src}
+                  alt={bottom.image.alt}
+                  width={bottom.image.width}
+                  height={bottom.image.height}
+                />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
-      <div className="border-t border-gray-600 py-4 space-y-4 flex flex-col items-center justify-center md:flex-row md:justify-between ">
-        <div>Dunki | Built with Dunki by Team90Degree</div>
-        <div>
-            <Image src={"/Images/footer_img_large.png"} alt={"footer_img_large"} height={26} width={384}></Image>
+      <div className="border-t border-gray-200 mt-6"></div>
+
+      {variant === "variant1" ? (
+        <div className="max-w-7xl mx-auto px-4 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-md">
+          <p>{bottom.text}</p>
+          <Image
+            src={bottom.image.src}
+            alt={bottom.image.alt}
+            width={bottom.image.width}
+            height={bottom.image.height}
+          />
         </div>
-      </div>
+      ) : (
+        <div className="pt-6 text-center gap-4 text-md">
+          <p>{bottom.text}</p>
+        </div>
+      )}
     </footer>
   );
-}
+};
+
+export default Footer;

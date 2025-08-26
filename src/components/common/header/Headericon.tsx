@@ -1,6 +1,7 @@
 "use client";
 import { Dropdown } from "@/components/ui/dropDown";
-import { Handbag, User, X } from "lucide-react";
+import { Handbag, User} from "lucide-react";
+import { IoCloseCircleOutline } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
 import { useAppSelector } from "@/lib/store";
@@ -121,7 +122,7 @@ export function HeaderIcons() {
               onClick={() => setOpenCart(false)}
               className="absolute top-4 right-4 text-gray-600 hover:text-red-600"
             >
-              <X size={28} />
+              <IoCloseCircleOutline size={28} />
             </button>
 
             <h2 className="text-xl font-semibold mb-4 border-b pb-3">
@@ -130,8 +131,7 @@ export function HeaderIcons() {
 
             {items.length === 0 ? (
               <p className="text-gray-600">Your cart is empty.</p>
-            ) : (
-              <div className="flex flex-col gap-3 flex-1 overflow-y-auto">
+            ) : (<><div className="flex flex-col gap-3 flex-1 overflow-y-auto">
                 {items.map((item) => (
                   <div
                     key={item.id + item.variant}
@@ -155,11 +155,7 @@ export function HeaderIcons() {
                     </div>
                   </div>
                 ))}
-              </div>
-            )}
-
-            {/* Bottom buttons */}
-            <div className="mt-4 flex flex-col gap-2">
+              </div><div className="mt-4 flex flex-col gap-2">
               <Link href="/checkout" onClick={() => setOpenCart(false)}>
                 <CustomButton variant="opposithover" size="md" className="w-full">
                   Checkout
@@ -170,7 +166,12 @@ export function HeaderIcons() {
                   View Cart
                 </CustomButton>
               </Link>
-            </div>
+            </div></>
+              
+            )}
+
+            {/* Bottom buttons */}
+            
           </div>
         )}
       </div>

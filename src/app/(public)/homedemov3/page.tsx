@@ -12,7 +12,7 @@ import ShopAtInstagram from "@/components/modules/home/ShopAtInstagram";
 export default function Home() {
   return (
     <div>
-      <Headers />
+      <Headers variant="third"/>
       <HeroSection layout="homev3" />
        <FeatureList layout={"icon"}/>
       <AuthorOfTheMonth/>
@@ -20,7 +20,7 @@ export default function Home() {
       <NewReleaseBooks title={"New Release Books"}/>
       <NewBooks layout={"homev3"}/>
       <ShopAtInstagram/>
-      <Footer />
+      <Footer variant="variant2" bgColor="bg-white" textColor="black"/>
     </div>
   );
 }

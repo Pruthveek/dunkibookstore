@@ -1,0 +1,53 @@
+{
+  "columns": [
+    {
+      "title": "Need Help",
+      "links": [
+        { "label": "Shipping & Returns", "url": "/shipping-returns" },
+        { "label": "Secure Shopping", "url": "/secure-shopping" },
+        { "label": "Affiliates", "url": "/affiliates" },
+        { "label": "International Shipping", "url": "/international-shipping" },
+        { "label": "Contact", "url": "/contact" }
+      ]
+    },
+    {
+      "title": "Categories",
+      "links": [
+        { "label": "Contact us", "url": "/pages/contact-us" },
+        { "label": "About us", "url": "/pages/about-us" },
+        { "label": "Term & Conditions", "url": "/" },
+        { "label": "Gift Vouchers", "url": "/" },
+        { "label": "BestSellers", "url": "collections/best-sellers" }
+      ]
+    },
+    {
+      "title": "Information",
+      "links": [
+        { "label": "My Account", "url": "/" },
+        { "label": "Shopping cart", "url": "/cart" },
+        { "label": "Wishlist", "url": "/" },
+        { "label": "Custom Link", "url": "/" },
+        { "label": "Help", "url": "/" }
+      ]
+    },
+    {
+      "title": "Our Newsletter",
+      "newsletter": {
+        "description": "Sign up for our latest news and offers.",
+        "placeholder": "email@example.com",
+        "buttonText": "Subscribe"
+      },
+      "payments": [
+        { "src": "/images/payments/mastercard.png", "alt": "Mastercard", "width": 40, "height": 30 },
+        { "src": "/images/payments/applepay.png", "alt": "Apple Pay", "width": 40, "height": 30 },
+        { "src": "/images/payments/visa.png", "alt": "Visa", "width": 40, "height": 30 },
+        { "src": "/images/payments/amex.png", "alt": "Amex", "width": 40, "height": 30 },
+        { "src": "/images/payments/paypal.png", "alt": "PayPal", "width": 40, "height": 30 },
+        { "src": "/images/payments/clearpay.png", "alt": "Clearpay", "width": 60, "height": 30 }
+      ]
+    }
+  ],
+  "bottom": {
+    "text": "Copyright Dunki | Built with Dunki by Team90Degree"
+  }
+}
