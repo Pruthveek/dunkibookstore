@@ -11,6 +11,7 @@ import ProductCard from "@/components/common/home/productbookcard";
 import { products as productsData } from "@/data/products";
 import type { Product } from "@/data/products";
 import CustomButton from "@/components/ui/Buttons";
+import Link from "next/link";
 
 type SliderProductComponentProps = {
   title: string;
@@ -46,7 +47,8 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
               00 Days 00 Hours 00 Min 00 Sec
             </CustomButton>
           ) : (
-            <CustomButton variant="secondary">View All Books</CustomButton>
+            <Link href="/collections/all"><CustomButton variant="secondary">View All Books</CustomButton></Link>
+            
           )}
         </div>
       </div>

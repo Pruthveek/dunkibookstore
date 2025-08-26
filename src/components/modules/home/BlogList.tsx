@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import BlogData from "@/data/blogData.json";
 import CustomButton from "@/components/ui/Buttons";
 import BlogCard from "@/components/common/blog/BlogCard";
+import Link from "next/link";
 
 type BlogListProps = {
   title: string;
@@ -31,7 +32,7 @@ const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
       <div className="md:flex justify-between items-center mb-6">
         <div className="text-3xl md:text-5xl">{title}</div>
         <div className="flex mt-4 md:mt-0">
-          <CustomButton variant="secondary">{buttontext}</CustomButton>
+          <Link href="/blogs/news"><CustomButton variant="secondary">{buttontext}</CustomButton></Link>
         </div>
       </div>
       <Swiper
