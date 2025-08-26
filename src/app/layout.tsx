@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "@/app/(public)/cart/providers";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <main>{children}</main>
+          <main>{children}<BackToTopButton /></main>
         </Providers>
       </body>
     </html>
