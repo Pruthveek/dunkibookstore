@@ -38,7 +38,7 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
   };
 
   return (
-    <aside className="w-full max-w-xs shrink-0">
+    <aside className="w-full shrink-0">
       {/* Availability */}
       <div className="border-b border-gray-300 py-2">
         <button

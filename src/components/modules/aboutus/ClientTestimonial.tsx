@@ -49,7 +49,7 @@ export default function Page() {
               }
             });
           }}
-          className="w-full"
+          className=" w-screen md:w-full"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className="!h-auto">

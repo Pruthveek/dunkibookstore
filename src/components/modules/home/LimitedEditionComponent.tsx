@@ -2,6 +2,7 @@ import React from 'react'
 import Timer from '@/components/ui/Timer'
 import CustomButton from '@/components/ui/Buttons'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function LimitedEditionComponent() {
   return (
@@ -10,7 +11,8 @@ export default function LimitedEditionComponent() {
             <div className='space-y-10 m-4 md:m-20'>
                 <p className='text-5xl'>Shop limited edition collaborations</p>
                 <Timer/>
-                <CustomButton variant='secondary' size='xl' >Shop Now</CustomButton>
+                <Link href="/collections/all"><CustomButton variant='secondary' size='xl' >Shop Now</CustomButton></Link>
+                
             </div>
             <div className='px-auto relative size-60 md:size-[500px]'>
                 <Image src="/Images/authors/jhjhj_66f84977-da32-438e-867d-05a07f41a4f3.png" alt='books' fill className='bg-cover'></Image>

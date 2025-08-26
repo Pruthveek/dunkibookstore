@@ -14,7 +14,7 @@ export default function JoinComunity() {
         fill
         className="object-cover"
       />
-      <div className="relative max-w-7xl w-full grid grid-cols-2 p-6">
+      <div className="relative max-w-7xl w-full grid md:grid-cols-2 p-6">
         <div>
           <div className="mb-6">
             <p className="text-3xl md:text-5xl mb-4">

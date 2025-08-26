@@ -66,7 +66,7 @@ const ShopPage: React.FC = () => {
       />
       <CollectionSection />
 
-      <div className="section-container2 gap-4 grid grid-cols-1 md:grid-cols-4 py-10">
+      <div className="section-container2 md:gap-4 grid grid-cols-1 md:grid-cols-4 py-10">
         {/* Sidebar */}
         <div className="col-span-4 md:col-span-1 md:order-last">
           <FiltersSidebar
