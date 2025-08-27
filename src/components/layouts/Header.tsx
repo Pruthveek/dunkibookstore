@@ -191,7 +191,7 @@ export default function Header({
               <div className="flex justify-between items-center gap-4 p-4 border-b border-gray-300">
                 <SearchBox placeholder="I'm looking for…" />
                 <button onClick={() => setSidebarOpen(false)}>
-                  <CircleX size={15} />
+                  <CircleX size={20} />
                 </button>
               </div>
 

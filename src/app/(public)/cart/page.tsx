@@ -15,11 +15,14 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import CustomButton from "@/components/ui/Buttons";
+import PaymentModal from "@/components/models/PaymentModel";
+import { useState } from "react";
 
 export default function CartPage() {
   const items = useAppSelector(selectCartItems);
   const total = useAppSelector(selectCartTotal);
   const dispatch = useAppDispatch();
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   return (
     <>
@@ -203,6 +206,7 @@ export default function CartPage() {
                   variant="secondary"
                   size="xl"
                   className="w-full mt-4"
+                  onClick={() => setIsPaymentModalOpen(true)}
                 >
                   Proceed to Checkout
                 </CustomButton>
@@ -220,6 +224,21 @@ export default function CartPage() {
             </div>
           </>
         )}
+        {/* Payment Modal */}
+        <PaymentModal
+          isOpen={isPaymentModalOpen}
+          onClose={() => setIsPaymentModalOpen(false)}
+          amount={total}
+          currency="INR"
+          orderId={`order_${Date.now()}`}
+          customerName=""
+          customerPhone=""
+          description={`Payment for ${items.length} item(s)`}
+          onSuccess={() => {
+            dispatch(clearCart());
+          }}
+          onFailure={() => {}}
+        />
       </section>
     </>
   );

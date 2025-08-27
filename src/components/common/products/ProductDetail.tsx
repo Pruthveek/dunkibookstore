@@ -17,6 +17,7 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Box, ChevronLeft, ChevronRight, Timer } from "lucide-react";
 import CustomButton from "@/components/ui/Buttons";
+import PaymentModal from "@/components/models/PaymentModel";
 
 type Props = {
   product: Product;
@@ -30,6 +31,7 @@ export default function ProductDetail({ product }: Props) {
   const [quantity, setQuantity] = useState(1);
   const sizes = ["S", "M", "XS"];
   const [selected, setSelected] = useState("S");
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
@@ -237,7 +239,12 @@ export default function ProductDetail({ product }: Props) {
           </CustomButton>
         </div>
 
-        <CustomButton variant="secondary" size="xl" className="w-full mt-3">
+        <CustomButton
+          variant="secondary"
+          size="xl"
+          className="w-full mt-3"
+          onClick={() => setIsPaymentModalOpen(true)}
+        >
           BUY IT NOW
         </CustomButton>
 
@@ -304,6 +311,19 @@ export default function ProductDetail({ product }: Props) {
           </li>
         </ul>
       </motion.div>
+      {/* Payment Modal */}
+      <PaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        amount={Number(product.price) * quantity}
+        currency="INR"
+        orderId={`order_${product.productId}_${Date.now()}`}
+        customerName=""
+        customerPhone=""
+        description={`Payment for ${product.title} (${quantity} item${quantity > 1 ? "s" : ""})`}
+        onSuccess={() => setIsPaymentModalOpen(false)}
+        onFailure={() => setIsPaymentModalOpen(false)}
+      />
     </section>
   );
 }
