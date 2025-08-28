@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/lib/store";
 import { clearCart } from "@/lib/features/cartSlice";
+
 interface PaymentModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -14,6 +15,7 @@ interface PaymentModalProps {
   currency: string;
   orderId: string;
   customerName: string;
+  customerEmail: string;
   customerPhone: string;
   description?: string;
   onSuccess: (response: {
@@ -29,6 +31,7 @@ interface RazorpayOptions {
   amount: number;
   currency: string;
   name?: string;
+  email?: string;
   description?: string;
   order_id: string;
   handler: (response: {
@@ -36,7 +39,7 @@ interface RazorpayOptions {
     razorpay_order_id: string;
     razorpay_signature: string;
   }) => void;
-  prefill?: { name?: string; contact?: string };
+  prefill?: { name?: string; email?: string; contact?: string };
   notes?: Record<string, string>;
   theme?: { color: string };
 }
@@ -54,6 +57,7 @@ export default function PaymentModal({
   currency,
   orderId,
   customerName,
+  customerEmail,
   customerPhone,
   description,
   onSuccess,
@@ -62,100 +66,95 @@ export default function PaymentModal({
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const rezorpayKey= process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+
+  // Load Razorpay script dynamically
   const loadRazorpayScript = () => {
     return new Promise<void>((resolve, reject) => {
-      if (typeof window === "undefined") return reject(new Error("Window not available"));
+      if (typeof window === "undefined")
+        return reject(new Error("Window not available"));
       if (window.Razorpay) return resolve();
 
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.async = true;
       script.onload = () => resolve();
-      script.onerror = () => reject(new Error("Failed to load Razorpay script"));
+      script.onerror = () =>
+        reject(new Error("Failed to load Razorpay script"));
       document.body.appendChild(script);
     });
   };
 
-const handlePayment = async () => {
-  try {
-    setLoading(true);
-    // Immediately clear cart and persisted state, then redirect home
+  const handlePayment = async () => {
     try {
-      dispatch(clearCart());
-      if (typeof window !== "undefined") {
-        localStorage.removeItem("persist:root");
-      }
-    } catch (e) {
-      console.log(e)
+      setLoading(true);
+
+      // 1. Load Razorpay SDK
+      await loadRazorpayScript();
+
+      // 2. Create order from backend
+      const res = await fetch("/api/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: Math.round(amount * 100),
+          currency,
+          receipt: orderId,
+        }),
+      });
+
+      const data = await res.json();
+      if (!data.id) throw new Error("Order creation failed");
+
+      // 3. Setup Razorpay options
+      const options: RazorpayOptions = {
+        key: rezorpayKey || "process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID",
+        amount: data.amount,
+        currency: data.currency,
+        order_id: data.id,
+        name: "Dunki Bookstore",
+        description: description || "Order payment",
+        handler: (response) => {
+          console.log("Payment success:", response);
+
+          try {
+            dispatch(clearCart());
+            if (typeof window !== "undefined") {
+              localStorage.removeItem("persist:root");
+            }
+          } catch (e) {
+            console.error("Failed to clear cart:", e);
+          }
+
+          onSuccess(response);
+          onClose();
+          router.push("/");
+        },
+        prefill: {
+          name: customerName,
+          email: customerEmail,
+          contact: customerPhone,
+        },
+        theme: { color: "#E7000B" },
+      };
+
+      // 4. Open Razorpay checkout
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (err) {
+      onFailure(err);
+    } finally {
+      setLoading(false);
     }
-    onClose();
-    router.push("/");
-    return;
-    await loadRazorpayScript();
-
-    const res = await fetch("/api/create-order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        amount: Math.round(amount * 100),
-        currency,
-        receipt: orderId,
-      }),
-    });
-
-    const data = await res.json();
-
-    if (!data.id) {
-      throw new Error("Order creation failed");
-    }
-
-    const options: RazorpayOptions = {
-      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-      amount: data.amount,
-      currency: data.currency,
-      order_id: data.id,
-      name: "Dunki Bookstore",
-      description: description || "Order payment",
-      handler: (response) => {
-        // Let parent decide what to do (clear cart/redirect)
-        onSuccess(response);
-        onClose();
-      },
-      prefill: {
-        name: customerName,
-        contact: customerPhone,
-      },
-      theme: { color: "#3399cc" },
-    };
-
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  } catch (err) {
-    console.error("Payment failed:", err);
-    onFailure(err);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   useEffect(() => {
     if (!isOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    const previousTouchAction = document.body.style.touchAction;
+    const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    document.body.style.touchAction = "none";
-
-    const preventScroll = (e: Event) => {
-      e.preventDefault();
-    };
-    document.addEventListener("wheel", preventScroll, { passive: false });
-    document.addEventListener("touchmove", preventScroll, { passive: false });
 
     return () => {
-      document.body.style.overflow = previousOverflow || "";
-      document.body.style.touchAction = previousTouchAction || "";
-      document.removeEventListener("wheel", preventScroll as EventListener);
-      document.removeEventListener("touchmove", preventScroll as EventListener);
+      document.body.style.overflow = original;
     };
   }, [isOpen]);
 
@@ -163,25 +162,26 @@ const handlePayment = async () => {
 
   return (
     <div
-      className=" h-screen  w-screen fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4"
+      className=" h-screen w-screen fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
       role="dialog"
       aria-modal="true"
+      onClick={onClose}
     >
       <div
         className="relative w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close */}
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-10 text-gray-100 hover:text-white"
+          className="absolute top-3 right-3 z-10 text-gray-700 hover:text-black"
           aria-label="Close payment modal"
         >
-          <CircleX size={20} />
+          <CircleX size={22} />
         </button>
 
         {/* Hero Image */}
-        <div className="relative w-full h-40 sm:h-56 md:h-64 flex-shrink-0">
+        <div className="relative w-full h-96 flex-shrink-0">
           <Image
             src="/Images/PlaygroundImage1.jpg"
             alt="Secure payment"
@@ -201,14 +201,17 @@ const handlePayment = async () => {
 
           {/* Info */}
           <p className="text-sm text-gray-600 mb-2">
-            You&apos;re about to pay <span className="text-red-600">{currency} {amount.toFixed(2)}</span>
+            You&apos;re about to pay{" "}
+            <span className="text-red-600 font-medium">
+              {currency} {amount.toFixed(2)}
+            </span>
           </p>
-          <div className="flex items-center gap-2 text-xs text-green-500 mb-4">
+          <div className="flex items-center gap-2 text-xs text-green-600 mb-4">
             <Shield size={14} />
             <span>Payments are secure and encrypted</span>
           </div>
 
-          {/* Button */}
+          {/* Pay Button */}
           <CustomButton
             onClick={handlePayment}
             disabled={loading}

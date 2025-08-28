@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { CircleFadingArrowUp } from "lucide-react";
 import { useRouter } from "next/navigation";
-import SearchBox from "../home/SearchBox";
+import SearchBox from "@/components/common/header/SearchBox";
 
 type Comment = {
   commentId: number;

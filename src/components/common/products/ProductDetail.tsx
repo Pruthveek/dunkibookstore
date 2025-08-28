@@ -319,6 +319,7 @@ export default function ProductDetail({ product }: Props) {
         currency="INR"
         orderId={`order_${product.productId}_${Date.now()}`}
         customerName=""
+        customerEmail=""
         customerPhone=""
         description={`Payment for ${product.title} (${quantity} item${quantity > 1 ? "s" : ""})`}
         onSuccess={() => setIsPaymentModalOpen(false)}

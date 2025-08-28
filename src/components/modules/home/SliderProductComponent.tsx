@@ -25,7 +25,6 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
   const [products, setProducts] = useState<Product[]>([]);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
-  const swiperRef = useRef<SwiperType | null>(null);
 
   const ishomev4 = layout === "homev4";
 
@@ -33,90 +32,76 @@ const SliderProductComponent: React.FC<SliderProductComponentProps> = ({
     setProducts(productsData);
   }, []);
 
-  const filteredProducts = products.filter((product) => product.DealsOfTheWeek);
+  const filteredProducts = products.filter((p) => p.DealsOfTheWeek);
 
   return (
     <section className="max-w-7xl mx-auto px-4">
-      <div className="  relative group/arrow my-10">
-      {/* Header */}
-      <div className="md:flex justify-between items-center mb-6">
-        <div className="text-3xl md:text-5xl">{title}</div>
-        <div className="flex mt-4 md:mt-0">
-          {ishomev4 ? (
-            <CustomButton variant="normal">
-              00 Days 00 Hours 00 Min 00 Sec
-            </CustomButton>
-          ) : (
-            <Link href="/collections/all"><CustomButton variant="secondary">View All Books</CustomButton></Link>
-            
-          )}
+      <div className="relative group/arrow my-10">
+        <div className="md:flex justify-between items-center mb-6">
+          <div className="text-3xl md:text-5xl">{title}</div>
+          <div className="flex mt-4 md:mt-0">
+            {ishomev4 ? (
+              <CustomButton variant="normal">
+                00 Days 00 Hours 00 Min 00 Sec
+              </CustomButton>
+            ) : (
+              <Link href="/collections/all">
+                <CustomButton variant="secondary">View All Books</CustomButton>
+              </Link>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Swiper */}
-      <Swiper
-        modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView={1}
-        loop={true}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
-        }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-          if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }
-        }}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-          setTimeout(() => {
-            if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop={true}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
+          onBeforeInit={(swiper: SwiperType) => {
+            if (
+              swiper.params.navigation &&
+              typeof swiper.params.navigation !== "boolean"
+            ) {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.destroy();
-              swiper.navigation.init();
-              swiper.navigation.update();
             }
-          });
-        }}
-      >
-        {filteredProducts.map((product) => (
-          <SwiperSlide key={product.productId}>
-            <ProductCard {...product} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          }}
+        >
+          {filteredProducts.map((product) => (
+            <SwiperSlide key={product.productId}>
+              <ProductCard {...product} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-      <button
-        ref={prevRef}
-        type="button"
-        aria-label="Previous"
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/60 p-2 rounded-full text-white 
-                   opacity-0 group-hover/arrow:opacity-100 transition hover:bg-red-600 hover:text-white hover:cursor-pointer z-10"
-      >
-        <ChevronLeft size={24} />
-      </button>
+        <button
+          ref={prevRef}
+          type="button"
+          aria-label="Previous"
+          className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/60 p-2 rounded-full text-white 
+             opacity-100 md:opacity-0 md:group-hover/arrow:opacity-100 transition 
+             hover:bg-red-600 hover:text-white z-10"
+        >
+          <ChevronLeft size={24} />
+        </button>
 
-      <button
-        ref={nextRef}
-        type="button"
-        aria-label="Next"
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/60 p-2 rounded-full text-white 
-                   opacity-0 group-hover/arrow:opacity-100 transition hover:bg-red-600 hover:text-white hover:cursor-pointer z-10"
-      >
-        <ChevronRight size={24} />
-      </button>
-    </div>
+        <button
+          ref={nextRef}
+          type="button"
+          aria-label="Next"
+          className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/60 p-2 rounded-full text-white 
+             opacity-100 md:opacity-0 md:group-hover/arrow:opacity-100 transition 
+             hover:bg-red-600 hover:text-white z-10"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </div>
     </section>
-    
   );
 };
 

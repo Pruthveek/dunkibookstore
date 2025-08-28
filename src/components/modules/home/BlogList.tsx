@@ -32,38 +32,34 @@ const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
       <div className="md:flex justify-between items-center mb-6">
         <div className="text-3xl md:text-5xl">{title}</div>
         <div className="flex mt-4 md:mt-0">
-          <Link href="/blogs/news"><CustomButton variant="secondary">{buttontext}</CustomButton></Link>
+          <Link href="/blogs/news">
+            <CustomButton variant="secondary">{buttontext}</CustomButton>
+          </Link>
         </div>
       </div>
+
       <Swiper
         modules={[Navigation]}
         spaceBetween={20}
         slidesPerView={1}
-        loop={true}
+        loop
+        navigation={{}}
         breakpoints={{
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-          const navigation = swiper.params.navigation as NavigationOptions | undefined;
-          if (navigation && typeof navigation !== "boolean") {
-            navigation.prevEl = prevRef.current;
-            navigation.nextEl = nextRef.current;
-          }
-        }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
           setTimeout(() => {
-            const navigation = swiper.params.navigation as NavigationOptions | undefined;
-            if (navigation && typeof navigation !== "boolean") {
+            if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+              const navigation = swiper.params.navigation as NavigationOptions;
               navigation.prevEl = prevRef.current;
               navigation.nextEl = nextRef.current;
               swiper.navigation.destroy();
               swiper.navigation.init();
               swiper.navigation.update();
             }
-          }, 0);
+          });
         }}
       >
         {blogs.map((blog) => (
@@ -72,6 +68,7 @@ const BlogList: React.FC<BlogListProps> = ({ title, buttontext }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+
       <button
         ref={prevRef}
         type="button"

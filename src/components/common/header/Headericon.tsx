@@ -220,11 +220,11 @@ export function HeaderIcons() {
         currency="INR"
         orderId={`order_${Date.now()}`}
         customerName=""
+        customerEmail="" 
         customerPhone=""
         description={`Payment for ${items.length} item(s)`}
         onSuccess={() => setIsPaymentModalOpen(false)}
-        onFailure={() => {}}
-      />
+        onFailure={() => { } }      />
     </div>
   );
 }

@@ -10,7 +10,7 @@ import OfferBar from "@/components/common/header/OfferBar";
 import { HeaderIcons } from "@/components/common/header/Headericon";
 import NavbarMenu from "@/components/common/header/NavbarMenu";
 import menuData from "@/data/menuData.json";
-import SearchBox from "../common/home/SearchBox";
+import SearchBox from "@/components/common/header/SearchBox";
 
 type HeaderProps = {
   variant?: "default" | "second" | "third";

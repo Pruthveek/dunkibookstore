@@ -232,6 +232,7 @@ export default function CartPage() {
           currency="INR"
           orderId={`order_${Date.now()}`}
           customerName=""
+          customerEmail=""
           customerPhone=""
           description={`Payment for ${items.length} item(s)`}
           onSuccess={() => {
