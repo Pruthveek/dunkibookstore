@@ -32,7 +32,7 @@ export default function ProductDetail({ product }: Props) {
   const sizes = ["S", "M", "XS"];
   const [selected, setSelected] = useState("S");
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
@@ -48,7 +48,7 @@ export default function ProductDetail({ product }: Props) {
         color: selectedColor,
         size: selected,
         quantity,
-        variant: ""
+        variant: "",
       })
     );
   };
@@ -60,20 +60,17 @@ export default function ProductDetail({ product }: Props) {
         <Swiper
           spaceBetween={10}
           navigation={false}
-          thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
         >
-          {product.images.map((img, i) => (
-            <SwiperSlide key={i}>
-              <Image
-                src={img.original}
-                alt={product.title}
-                width={400}
-                height={400}
-                className="object-contain w-full h-auto"
-              />
-            </SwiperSlide>
-          ))}
+          <SwiperSlide>
+            <Image
+              src={product.images[selectedImageIndex].original}
+              alt={product.title}
+              width={400}
+              height={400}
+              className="object-contain w-full h-auto"
+            />
+          </SwiperSlide>
         </Swiper>
 
         {/* Thumbnails with Custom Buttons */}
@@ -90,10 +87,7 @@ export default function ProductDetail({ product }: Props) {
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Navigation, Thumbs]}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
+            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
             onBeforeInit={(swiper) => {
               // @ts-expect-error – Swiper types don’t expose this
               swiper.params.navigation.prevEl = prevRef.current;
@@ -109,7 +103,12 @@ export default function ProductDetail({ product }: Props) {
                   alt="thumb"
                   width={200}
                   height={300}
-                  className="cursor-pointer border"
+                  onClick={() => setSelectedImageIndex(i)}
+                  className={`cursor-pointer border ${
+                    selectedImageIndex === i
+                      ? "border-2 border-red-600"
+                      : "border-gray-300"
+                  }`}
                 />
               </SwiperSlide>
             ))}
@@ -123,7 +122,7 @@ export default function ProductDetail({ product }: Props) {
             className="absolute top-1/2 left-0 -translate-y-1/2 bg-black/60 p-1.5 sm:p-2 rounded-full text-white 
                        opacity-0 group-hover/arrow:opacity-100 transition hover:bg-red-600 cursor-pointer z-10"
           >
-            <ChevronLeft/>
+            <ChevronLeft />
           </button>
           <button
             ref={nextRef}
@@ -284,18 +283,16 @@ export default function ProductDetail({ product }: Props) {
         <div className="flex items-center gap-3 mt-4">
           <p className="text-sm sm:text-base font-medium">Share:</p>
           <div className="flex gap-2">
-            {["facebook.png", "twitter.png", "pinterest.png"].map(
-              (icon, i) => (
-                <div key={i} className="relative w-5 h-5">
-                  <Image
-                    src={`/Images/socialicon/${icon}`}
-                    alt={icon}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              )
-            )}
+            {["facebook.png", "twitter.png", "pinterest.png"].map((icon, i) => (
+              <div key={i} className="relative w-5 h-5">
+                <Image
+                  src={`/Images/socialicon/${icon}`}
+                  alt={icon}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
@@ -321,7 +318,9 @@ export default function ProductDetail({ product }: Props) {
         customerName=""
         customerEmail=""
         customerPhone=""
-        description={`Payment for ${product.title} (${quantity} item${quantity > 1 ? "s" : ""})`}
+        description={`Payment for ${product.title} (${quantity} item${
+          quantity > 1 ? "s" : ""
+        })`}
         onSuccess={() => setIsPaymentModalOpen(false)}
         onFailure={() => setIsPaymentModalOpen(false)}
       />

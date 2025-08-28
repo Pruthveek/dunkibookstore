@@ -66,7 +66,7 @@ export default function PaymentModal({
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const rezorpayKey= process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+  const rezorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
 
   // Load Razorpay script dynamically
   const loadRazorpayScript = () => {
