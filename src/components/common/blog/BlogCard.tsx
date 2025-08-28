@@ -16,7 +16,7 @@ type Blog = {
   blogId: number;
   title: string;
   slug: string;
-  discription?: string;
+  description?: string;
   date: string;
   image: string;
   comments: Comment[];
@@ -63,7 +63,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, readmorebutton }) => {
             {blog.title}
           </h3>
           <h3 className="my-2 text-sm gap-2">
-            {blog.discription?.slice(0, 190)}
+            {blog.description?.slice(0, 190)}
           </h3>
           <CustomButton
             variant="secondary"

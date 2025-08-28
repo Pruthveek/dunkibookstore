@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
-import ProductCard from "@/components/common/home/productbookcard";
+import ProductCard from "@/components/common/home/productcard";
 import { products as productsData } from "@/data/products";
 import type { Product } from "@/data/products";
 
@@ -48,6 +48,8 @@ export default function Products() {
               price={product.price}
               productSlug={product.productSlug}
               productId={product.productId}
+              color={product.color}
+              description={product.description}
               layout="vertical"
             />
           ))

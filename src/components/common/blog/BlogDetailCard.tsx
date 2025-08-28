@@ -16,7 +16,7 @@ type Blog = {
   blogId: number;
   title: string;
   slug: string;
-  discription: string;
+  description: string;
   date: string;
   image: string;
   image2?: string;
@@ -44,7 +44,7 @@ export default function BlogDetailCard({ blog, onTagClick }: BlogDetailCardProps
       </div>
 
       {/* Content */}
-      <p className="text-xl mb-8">{blog.discription}</p>
+      <p className="text-xl mb-8">{blog.description}</p>
       <p className="text-xl mb-8">
         Moreover, if you bought one of our rings and the size does not suit
         you, you can always come and exchange it for another size in our shop! ...

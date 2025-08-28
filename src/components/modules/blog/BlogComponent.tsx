@@ -17,7 +17,7 @@ type Blog = {
   blogId: number;
   title: string;
   slug: string;
-  discription: string;
+  description: string;
   date: string;
   image: string;
   image2: string;

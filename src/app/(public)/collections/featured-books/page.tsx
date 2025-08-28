@@ -7,7 +7,7 @@ import Pagination from "@/components/common/shop/Pagination";
 import { buildCounts, parsePriceGBP, sortProducts, type SortKey } from "@/lib/products";
 import BreadCrumb from "@/components/layouts/BreadCrumb";
 import CollectionSection from "@/components/modules/shop/CollectionSection";
-import ProductCard from "@/components/common/home/productbookcard";
+import ProductCard from "@/components/common/home/productcard";
 import ShopAtInstagram from "@/components/modules/home/ShopAtInstagram";
 import OfferBanner from "@/components/modules/home/OfferBanner";
 
@@ -108,6 +108,8 @@ const FeaturedBook: React.FC = () => {
               <ProductCard
                 key={p.productId}
                 {...p}
+                color={p.color}
+                description={p.description}
                 layout={layout === "list" ? "horizontal" : "vertical"}
               />
             ))}

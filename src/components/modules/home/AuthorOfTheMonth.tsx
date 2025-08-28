@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from "@/components/common/home/productbookcard";
+import ProductCard from "@/components/common/home/productcard";
 import Image from "next/image";
 
 export default function AuthorOfTheMonth() {

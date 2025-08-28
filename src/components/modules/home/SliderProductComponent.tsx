@@ -7,7 +7,7 @@ import type { Swiper as SwiperType } from "swiper";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from "@/components/common/home/productbookcard";
+import ProductCard from "@/components/common/home/productcard";
 import { products as productsData } from "@/data/products";
 import type { Product } from "@/data/products";
 import CustomButton from "@/components/ui/Buttons";

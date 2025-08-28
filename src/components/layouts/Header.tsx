@@ -51,12 +51,15 @@ export default function Header({
               textColor={offerBarText}
             />
             <div className="px-10 lg:px-20 flex justify-between items-center py-4">
-              <Image
-                src="/Images/logo1_130x@2x.png"
-                alt="Logo"
-                width={130}
-                height={37}
-              />
+              <Link href={"/"}>
+                <Image
+                  src="/Images/logo1_130x@2x.png"
+                  alt="Logo"
+                  width={130}
+                  height={37}
+                />
+              </Link>
+
               <SearchBox placeholder="I'm looking for…" buttontext="Search" />
               <HeaderIcons />
               <button
@@ -85,12 +88,13 @@ export default function Header({
               textColor={offerBarText}
             />
             <div className="px-10 lg:px-20 flex justify-between items-center pt-6">
+              <Link href={"/"}>
               <Image
                 src="/Images/logo1_130x@2x.png"
                 alt="Logo"
                 width={130}
                 height={37}
-              />
+              /></Link>
               <NavbarMenu />
               <HeaderIcons />
             </div>
@@ -100,12 +104,13 @@ export default function Header({
         {variant === "third" && !isScrolled && (
           <div>
             <div className="px-10 lg:px-20 flex justify-between items-center pt-4">
+              <Link href={"/"}>
               <Image
                 src="/Images/logo1_130x@2x.png"
                 alt="Logo"
                 width={130}
                 height={37}
-              />
+              /></Link>
               <SearchBox placeholder="I'm looking for…" buttontext="Search" />
               <HeaderIcons />
               <button
@@ -133,12 +138,13 @@ export default function Header({
           }`}
         >
           <div className="px-10 lg:px-20 flex justify-between items-center py-3">
+            <Link href={"/"}>
             <Image
               src="/Images/logo1_130x@2x.png"
               alt="Logo"
               width={130}
               height={37}
-            />
+            /></Link>
             <NavbarMenu />
             <HeaderIcons />
             <button
@@ -153,12 +159,13 @@ export default function Header({
 
       {/* Mobile Header (always same) */}
       <div className="lg:hidden w-screen flex justify-between items-center px-4 py-3 border-b border-gray-300 fixed top-0 left-0 right-0 bg-white z-50">
+        <Link href={"/"}>
         <Image
           src="/Images/logo1_130x@2x.png"
           alt="Logo"
           width={120}
           height={34}
-        />
+        /></Link>
         <div className="flex items-center gap-3">
           <HeaderIcons />
           <button onClick={() => setSidebarOpen(true)}>

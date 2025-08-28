@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProductCard from "@/components/common/home/productbookcard";
+import ProductCard from "@/components/common/home/productcard";
 import { products as productsData } from "@/data/products";
 import type { Product } from "@/data/products";
 import NewBookBannerCard from "@/components/common/home/NewBookBannerCard";

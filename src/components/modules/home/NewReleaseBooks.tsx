@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/grid";
 import { products as productsData } from "@/data/products";
 import type { Product } from "@/data/products";
-import ProductCard from "@/components/common/home/productbookcard";
+import ProductCard from "@/components/common/home/productcard";
 
 type SliderProductComponentProps = {
   title: string;

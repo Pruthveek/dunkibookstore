@@ -25,7 +25,6 @@ type Props = {
 
 export default function ProductDetail({ product }: Props) {
   const dispatch = useAppDispatch();
-
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [selectedColor, setSelectedColor] = useState(product.color[0]);
   const [quantity, setQuantity] = useState(1);
@@ -55,12 +54,13 @@ export default function ProductDetail({ product }: Props) {
 
   return (
     <section className="section-container2 mx-4 md:mx-auto px-2 md:px-4 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-      {/* LEFT - Product Images */}
+
       <div>
         <Swiper
           spaceBetween={10}
           navigation={false}
           modules={[FreeMode, Navigation, Thumbs]}
+          thumbs={{ swiper: thumbsSwiper }}
         >
           <SwiperSlide>
             <Image
@@ -152,7 +152,7 @@ export default function ProductDetail({ product }: Props) {
           Availability: {product.stock} left in stock
         </p>
         <p className="mt-3 text-sm sm:text-base leading-relaxed">
-          {product.discription}
+          {product.description}
         </p>
 
         {/* Info Table */}

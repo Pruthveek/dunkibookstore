@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "@/lib/store";
 
 export type CartItem = {
-  variant: string;
+  variant?: string;
   id: string;
   title: string;
   author: string;
@@ -24,7 +24,7 @@ const initialState: CartState = {
 };
 
 const makeKey = (item: { id: string; color?: string; size?: string }) =>
-  `${item.id}-${item.color ?? "default"}-${item.size ?? "default"}`;
+  `${item.id}-${item.color ?? "default"} ?? variant-${item.size ?? "default"}`;
 
 const cartSlice = createSlice({
   name: "cart",
@@ -61,7 +61,6 @@ const cartSlice = createSlice({
 export const { addToCart, removeFromCart, increaseQty, decreaseQty, clearCart } =
   cartSlice.actions;
 
-// ✅ Selectors
 export const selectCartItems = (state: RootState) =>
   Object.values(state.cart.items);
 

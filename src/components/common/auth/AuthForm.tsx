@@ -80,9 +80,9 @@ export default function AuthForm({
               className={`${bg === "withbg" ? "mb-6" : "mb-10"}`}
             />
           ))}
-          <CustomButton size={"xl"} variant={"secondary"}>
+          <Link href={"/"}><CustomButton size={"xl"} variant={"secondary"}>
             {submitLabel}
-          </CustomButton>
+          </CustomButton></Link>
         </form>
 
         <div className="flex flex-col md:flex-row md:justify-between mt-4 text-sm">
