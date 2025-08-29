@@ -4,9 +4,9 @@
       "title": "About Info",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor inci ut labore et dolore.",
       "contacts": [
-        { "icon": "FaMapMarkerAlt", "text": "Addresss: 123 Pall Mall, London England" },
-        { "icon": "FaEnvelope", "text": "Email: hello@example.com" },
-        { "icon": "FaPhoneAlt", "text": "Phone: (012) 345 6789" }
+        { "icon": "FaMapMarkerAlt", "text": "Addresss: 123 Pall Mall, London England" ,"link":"https://maps.app.goo.gl/KCBgdHQ4iBgMxgmu8"},
+        { "icon": "FaEnvelope", "text": "Email: pruthveek512@gmail.com" ,"link":"mailto:pruthveek512@gmail.com?subject=Dealer%20Inquiry&body=Hello%20Team%2C%20I%20want%20to%20connect%20with%20a%20dealer."},
+        { "icon": "FaPhoneAlt", "text": "Phone: +91 7433993938" ,"link":"tel:+917433993938"}
       ]
     },
     "columns": [

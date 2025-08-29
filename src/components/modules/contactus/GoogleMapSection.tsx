@@ -1,25 +1,46 @@
-import React from "react";
-import Image from "next/image";
+"use client";
+
+import React, { useCallback, useState } from "react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+
 export default function GoogleMapSection() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const center = {
+    lat: 23.0417582,
+    lng: 72.6755603,
+  };
+
+  const markerIcon = {
+    url: "/Images/contactus/book-store_small.png",
+    scaledSize: { width: 100, height: 100 } as google.maps.Size,
+  };
+
+  const onMarkerLoad = useCallback((marker: google.maps.Marker) => {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }, []);
+
   return (
-    <div className="section-container flex justify-center relative">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.513781082241!2d-122.35032608436974!3d47.6205099791859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490154e3f3bca2b%3A0x8e7e7c8d49d5e7b!2sSpace%20Needle!5e0!3m2!1sen!2sus!4v1676158892143!5m2!1sen!2sus"
-        width="100%"
-        height="500"
-        style={{ border: 0 }}
-        allowFullScreen={true}
-        allow="fullscreen"
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
-      <Image
-        src="/Images/contactus/book-store_small.png"
-        alt="mapicon"
-        height={100}
-        width={100}
-        className="absolute top-40  left-50inset-0 animate-bounce"
-      ></Image>
+    <div className="w-7xl mx-auto h-[500px] mt-10 relative">
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse rounded-lg">
+          <div className="w-3/4 h-3/4 bg-gray-300 rounded-lg animate-pulse" />
+        </div>
+      )}
+
+      <LoadScript
+        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}
+        onLoad={() => setIsLoaded(true)}
+      >
+        <GoogleMap
+          mapContainerStyle={{ width: "100%", height: "100%" }}
+          center={center}
+          zoom={15}
+          onLoad={() => setIsLoaded(true)}
+        >
+          <Marker position={center} icon={markerIcon} onLoad={onMarkerLoad} />
+        </GoogleMap>
+      </LoadScript>
     </div>
   );
 }

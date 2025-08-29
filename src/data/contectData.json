@@ -2,16 +2,19 @@
     {
       "title": "Address:",
       "description": "123 Suspendis eccums american",
-      "icon": "MapPin"
+      "icon": "MapPin",
+      "link":"https://maps.app.goo.gl/KCBgdHQ4iBgMxgmu8"
     },
     {
       "title": "Email:",
       "description": "info@gmail.com",
-      "icon": "Mail"
+      "icon": "Mail",
+      "link":"mailto:pruthveek512@gmail.com?subject=Dealer%20Inquiry&body=Hello%20Team%2C%20I%20want%20to%20connect%20with%20a%20dealer."
     },
     {
       "title": "Call us:",
       "description": "+1 23 445 789 00",
-      "icon": "Smartphone"
+      "icon": "Smartphone",
+      "link":"tel:+917433993938"
     }
   ]

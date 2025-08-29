@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "@/app/(public)/cart/providers";
 import BackToTopButton from "@/components/ui/BackToTopButton";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "dunki",
@@ -15,6 +16,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           {children}
           <BackToTopButton />
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#333",
+                color: "#fff",
+              },
+            }}
+          />
         </Providers>
       </body>
     </html>

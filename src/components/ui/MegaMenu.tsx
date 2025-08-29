@@ -35,7 +35,7 @@ export default function MegaMenu({ images, categories, isOpen = true }: MegaMenu
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -30 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="bg-white shadow-xl p-8 w-full max-w-4xl mx-auto grid grid-cols-4 gap-10 "
+          className="bg-white shadow-xl p-10 w-full max-w-4xl mx-auto grid grid-cols-4 gap-10 "
         >
           <div className="col-span-3 grid grid-cols-3 gap-4">
             {images.map((imgItem, index) => (

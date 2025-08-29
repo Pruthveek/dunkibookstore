@@ -32,6 +32,7 @@ const icons = {
 type Contact = {
   icon: keyof typeof icons;
   text: string;
+  link:string;
 };
 
 type LinkItem = {
@@ -114,8 +115,9 @@ const Footer: React.FC<FooterProps> = ({
             <p className="text-md mb-4">{data.about.description}</p>
             <ul className="space-y-2 text-md">
               {data.about.contacts.map((contact, idx) => (
-                <li key={idx} className="flex items-center gap-2">
-                  {icons[contact.icon]} <span>{contact.text}</span>
+                <li key={idx} >
+                  <Link target="_blank" className="flex items-center gap-2" href={contact.link}>{icons[contact.icon]} <span>{contact.text}</span></Link>
+                  
                 </li>
               ))}
             </ul>

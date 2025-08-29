@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import InputField from "@/components/ui/InputField";
 import CustomButton from "@/components/ui/Buttons";
 import TextArea from "@/components/ui/TextArea";
+import toast from "react-hot-toast";
 
 interface Field {
   label: string;
@@ -29,6 +30,9 @@ interface AuthFormProps {
   secondaryLink?: { label: string; href: string };
   variantStyles?: "noborder" | "outlined" | "filled" | "rounded";
   bg?: "withbg" | "withoutbg";
+  action?: string;
+  method?: "GET" | "POST";
+  successMessage?: string;
 }
 
 export default function AuthForm({
@@ -37,12 +41,50 @@ export default function AuthForm({
   fields,
   textarea,
   submitLabel,
-  onSubmit,
   extraLink,
   secondaryLink,
   variantStyles = "noborder",
   bg = "withbg",
+  action,
+  method = "POST",
+  successMessage = "successfully",
 }: AuthFormProps) {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  useEffect(() => {
+    if (status === "success") {
+      toast.success(successMessage);
+    }
+    if (status === "error") {
+      toast.error("Something went wrong. Please try again.");
+    }
+  }, [status, successMessage]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(action || "", {
+        method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <div
       className={`${
@@ -52,14 +94,14 @@ export default function AuthForm({
       }`}
     >
       <div
-        className={` w-full max-w-2xl ${
+        className={`w-full max-w-2xl ${
           bg === "withbg" ? "bg-[#F3F3F3] p-10" : "bg-transparent"
         }`}
       >
-        <h1 className="text-2xl sm:text-5xl mb-2 text-center">{title}</h1>
-        <p className="text-sm sm:text-base text-center">{subtitle}</p>
+        {title && <h1 className="text-2xl sm:text-5xl mb-s text-center">{title}</h1>}
+        {subtitle && <p className="text-sm sm:text-base text-center">{subtitle}</p>}
 
-        <form onSubmit={onSubmit} className="mt-6">
+        <form onSubmit={handleSubmit} className="mt-6">
           {fields.map((field, idx) => (
             <InputField
               key={idx}
@@ -80,9 +122,10 @@ export default function AuthForm({
               className={`${bg === "withbg" ? "mb-6" : "mb-10"}`}
             />
           ))}
-          <Link href={"/"}><CustomButton size={"xl"} variant={"secondary"}>
+
+          <CustomButton type="submit" size="xl" variant="secondary" disabled={status === "loading"}>
             {submitLabel}
-          </CustomButton></Link>
+          </CustomButton>
         </form>
 
         <div className="flex flex-col md:flex-row md:justify-between mt-4 text-sm">

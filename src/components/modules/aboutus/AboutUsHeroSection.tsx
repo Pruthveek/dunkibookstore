@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CustomButton from "@/components/ui/Buttons";
+import Link from "next/link";
 
 export default function AboutUsHeroSection() {
   return (
@@ -48,9 +49,9 @@ export default function AboutUsHeroSection() {
             Dunki&apos;s journey, solidifying its position as a trailblazer in the
             realm of exquisite adornments.
           </p>
-          <CustomButton variant="secondary" size="xl">
+          <Link href={"/"}><CustomButton variant="secondary" size="xl">
             Explore More
-          </CustomButton>
+          </CustomButton></Link>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">

@@ -17,7 +17,7 @@ export default function DropdownMenu({ submenu, isOpen = true }: DropdownMenuPro
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="bg-white shadow-lg w-48  overflow-hidden"
+          className="bg-white pt-5 shadow-lg w-48  overflow-hidden"
         >
           {submenu.map((item, i) => (
             <motion.li

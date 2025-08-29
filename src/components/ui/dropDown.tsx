@@ -42,7 +42,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className={`absolute z-50 mt-2 min-w-[200px] bg-white shadow-lg
+            className={`absolute z-50 mt-6 min-w-[200px] bg-white shadow-lg
               ${align === "right" ? "right-0" : "left-0"}
             `}
           >
