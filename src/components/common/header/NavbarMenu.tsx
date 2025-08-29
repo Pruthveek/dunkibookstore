@@ -52,14 +52,14 @@ export default function NavbarMenu() {
 
             {/* Submenu */}
             {menu.submenu && openIndex === index && (
-              <div className="absolute top-5 left-0 mt-2 z-50">
+              <div className="absolute top-5 left-0 mt-2 z-30">
                 <DropdownMenu submenu={menu.submenu} />
               </div>
             )}
 
             {/* Mega Menu */}
             {menu.megaMenu && openIndex === index && (
-              <div className="absolute top-5 left-[-300px]  mt-2 z-50 w-screen">
+              <div className="absolute top-5 -left-10 mt-2 z-30 w-3xl">
                 <MegaMenu
                   images={menu.megaMenu.images || []}
                   categories={

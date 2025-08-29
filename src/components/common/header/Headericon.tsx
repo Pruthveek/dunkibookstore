@@ -1,6 +1,6 @@
 "use client";
 import { Dropdown } from "@/components/ui/dropDown";
-import { CircleX, Handbag, User } from "lucide-react";
+import { CircleX, Handbag, Search, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAppSelector } from "@/lib/store";
@@ -12,19 +12,62 @@ import {
 import CustomButton from "@/components/ui/Buttons";
 import { useState } from "react";
 import PaymentModal from "@/components/models/PaymentModel";
+import SearchBox from "./SearchBox";
+import { AnimatePresence, motion } from "framer-motion";
 
-export function HeaderIcons() {
+interface HeaderIconsProps {
+  variant?: "primary" | "secondary";
+}
+
+export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
   const count = useAppSelector(selectCartCount);
   const items = useAppSelector(selectCartItems);
   const total = useAppSelector(selectCartTotal);
 
   const [openCart, setOpenCart] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-      {/* Cart Dropdown */}
-      {/* Desktop / md+ */}
+      {/* ✅ Show Search Icon Only for Primary Variant */}
+      {variant === "primary" && (
+        <div
+          className="relative group cursor-pointer"
+          onClick={() => setIsSearchOpen(true)}
+        >
+          <Search size={25} className="group-hover:text-red-600" />
+        </div>
+      )}
+
+      {/* ✅ Search Modal */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed w-screen h-screen inset-0 bg-black/90 z-[9999] flex flex-col p-4 shadow-lg"
+          >
+            <button
+              onClick={() => setIsSearchOpen(false)}
+              className="flex justify-center text-white hover:text-red-600"
+            >
+              <CircleX size={28} />
+            </button>
+            <div className="flex-1 flex justify-center items-center">
+              <SearchBox
+                placeholder="Search for products..."
+                buttontext="Search"
+                variant="secondary"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ✅ Cart Dropdown */}
       <div className="hidden md:block">
         <Dropdown
           trigger={
@@ -103,7 +146,7 @@ export function HeaderIcons() {
         </Dropdown>
       </div>
 
-      {/* Mobile / < md  */}
+      {/* ✅ Mobile Cart */}
       <div className="block md:hidden relative">
         <div
           className="relative group cursor-pointer"
@@ -116,8 +159,7 @@ export function HeaderIcons() {
         </div>
 
         {openCart && (
-          <div className="fixed inset-0 bg-white z-50 flex flex-col p-4">
-            {/* Close Button */}
+          <div className="fixed inset-0 bg-white 450 flex flex-col p-4">
             <button
               onClick={() => setOpenCart(false)}
               className="absolute top-5 right-4 hover:text-red-600"
@@ -182,13 +224,11 @@ export function HeaderIcons() {
                 </div>
               </>
             )}
-
-            {/* Bottom buttons */}
           </div>
         )}
       </div>
 
-      {/* Account Dropdown */}
+      {/* ✅ Account Dropdown */}
       <Dropdown
         trigger={
           <User size={25} className="hover:text-red-600 hidden lg:block" />
@@ -212,7 +252,8 @@ export function HeaderIcons() {
           </Link>
         </div>
       </Dropdown>
-      {/* Payment Modal */}
+
+      {/* ✅ Payment Modal */}
       <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}
@@ -220,11 +261,12 @@ export function HeaderIcons() {
         currency="INR"
         orderId={`order_${Date.now()}`}
         customerName=""
-        customerEmail="" 
+        customerEmail=""
         customerPhone=""
         description={`Payment for ${items.length} item(s)`}
         onSuccess={() => setIsPaymentModalOpen(false)}
-        onFailure={() => { } }      />
+        onFailure={() => {}}
+      />
     </div>
   );
 }

@@ -61,7 +61,7 @@ export default function Header({
               </Link>
 
               <SearchBox placeholder="I'm looking for…" buttontext="Search" />
-              <HeaderIcons />
+              <HeaderIcons variant="secondary" />
               <button
                 onClick={() => setSidebarOpen(true)}
                 className="ml-3 lg:hidden"
@@ -103,7 +103,7 @@ export default function Header({
 
         {variant === "third" && !isScrolled && (
           <div>
-            <div className="px-10 lg:px-20 flex justify-between items-center pt-4">
+            <div className="px-10 lg:px-20 flex justify-between items-center py-4">
               <Link href={"/"}>
               <Image
                 src="/Images/logo1_130x@2x.png"
@@ -112,7 +112,7 @@ export default function Header({
                 height={37}
               /></Link>
               <SearchBox placeholder="I'm looking for…" buttontext="Search" />
-              <HeaderIcons />
+              <HeaderIcons variant="secondary" />
               <button
                 onClick={() => setSidebarOpen(true)}
                 className="ml-3 lg:hidden"
@@ -146,7 +146,7 @@ export default function Header({
               height={37}
             /></Link>
             <NavbarMenu />
-            <HeaderIcons />
+            <HeaderIcons  />
             <button
               onClick={() => setSidebarOpen(true)}
               className="ml-3 lg:hidden"
