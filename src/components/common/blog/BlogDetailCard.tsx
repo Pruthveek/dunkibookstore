@@ -32,18 +32,16 @@ type BlogDetailCardProps = {
 export default function BlogDetailCard({ blog, onTagClick }: BlogDetailCardProps) {
   return (
     <div className="col-span-3 md:order-last">
-      {/* Main image */}
+
       <div className="w-full h-[400px] md:h-[500px] relative mb-8">
         <Image src={blog.image} alt={blog.title} fill className="object-cover" />
       </div>
 
-      {/* Title and meta */}
       <h1 className="text-2xl md:text-5xl mb-4">{blog.title}</h1>
       <div className="mb-4 text-gray-800 flex items-center gap-2">
         {blog.date} — Store Admin
       </div>
 
-      {/* Content */}
       <p className="text-xl mb-8">{blog.description}</p>
       <p className="text-xl mb-8">
         Moreover, if you bought one of our rings and the size does not suit
@@ -71,14 +69,12 @@ export default function BlogDetailCard({ blog, onTagClick }: BlogDetailCardProps
         deterruisset nam sumi tantas de nilidi. Vel case alterum senserit...
       </p>
 
-      {/* List */}
       <ul className="list-disc list-inside mb-6">
         <li>Measure your finger with a tape or thread.</li>
         <li>Measure the diameter of one of your rings...</li>
         <li>Fly make saw creeping evening...</li>
       </ul>
 
-      {/* Tags & Share */}
       {blog.tags && (
         <div className="mb-8 md:flex justify-between items-center">
           <div className="flex flex-wrap gap-2 mt-4">
@@ -99,8 +95,6 @@ export default function BlogDetailCard({ blog, onTagClick }: BlogDetailCardProps
           </div>
         </div>
       )}
-
-      {/* Comments */}
       <div className="mt-10 text-xl">
         {blog.comments.length > 0 && (
           <ul className="space-y-4">

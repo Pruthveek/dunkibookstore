@@ -30,7 +30,6 @@ export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
 
   return (
     <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
-      {/* ✅ Show Search Icon Only for Primary Variant */}
       {variant === "primary" && (
         <div
           className="relative group cursor-pointer"
@@ -40,7 +39,6 @@ export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
         </div>
       )}
 
-      {/* ✅ Search Modal */}
       <AnimatePresence>
         {isSearchOpen && (
           <motion.div
@@ -67,7 +65,6 @@ export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
         )}
       </AnimatePresence>
 
-      {/* ✅ Cart Dropdown */}
       <div className="hidden md:block">
         <Dropdown
           trigger={
@@ -146,7 +143,6 @@ export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
         </Dropdown>
       </div>
 
-      {/* ✅ Mobile Cart */}
       <div className="block md:hidden relative">
         <div
           className="relative group cursor-pointer"
@@ -227,8 +223,6 @@ export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
           </div>
         )}
       </div>
-
-      {/* ✅ Account Dropdown */}
       <Dropdown
         trigger={
           <User size={25} className="hover:text-red-600 hidden lg:block" />
@@ -252,8 +246,6 @@ export function HeaderIcons({ variant = "primary" }: HeaderIconsProps) {
           </Link>
         </div>
       </Dropdown>
-
-      {/* ✅ Payment Modal */}
       <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}

@@ -39,7 +39,6 @@ export default function Header({
 
   return (
     <header>
-      {/* Desktop Header */}
       <div className="hidden lg:block fixed top-0 left-0 right-0 z-50 bg-white">
         {variant === "default" && !isScrolled && (
           <div>
@@ -129,7 +128,6 @@ export default function Header({
           </div>
         )}
 
-        {/* Sticky Header - same for all variants */}
         <div
           className={`fixed top-0 left-0 right-0 py-2 bg-white shadow-md z-50 transition-all duration-300 transform ${
             isScrolled
@@ -157,7 +155,6 @@ export default function Header({
         </div>
       </div>
 
-      {/* Mobile Header (always same) */}
       <div className="lg:hidden w-screen flex justify-between items-center px-4 py-3 border-b border-gray-300 fixed top-0 left-0 right-0 bg-white z-50">
         <Link href={"/"}>
         <Image
@@ -174,11 +171,9 @@ export default function Header({
         </div>
       </div>
 
-      {/* Mobile Drawer (unchanged) */}
       <AnimatePresence>
         {sidebarOpen && (
           <>
-            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -186,7 +181,6 @@ export default function Header({
               className="fixed inset-0 bg-black z-[60]"
               onClick={() => setSidebarOpen(false)}
             />
-            {/* Top Drawer */}
             <motion.div
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
@@ -194,7 +188,6 @@ export default function Header({
               transition={{ type: "tween", duration: 0.3 }}
               className="fixed top-0 right-0 h-full w-[300px] bg-white shadow-lg z-[70] flex flex-col"
             >
-              {/* Drawer Header */}
               <div className="flex justify-between items-center gap-4 p-4 border-b border-gray-300">
                 <SearchBox placeholder="I'm looking for…" />
                 <button onClick={() => setSidebarOpen(false)}>

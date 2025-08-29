@@ -28,7 +28,6 @@ const SortBar: React.FC<Props> = ({
 }) => {
   return (
     <div className="mb-6 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-      {/* Layout toggle */}
       <div className="hidden md:flex items-center gap-2">
         <button
           onClick={() => onLayoutChange("grid")}
@@ -43,8 +42,6 @@ const SortBar: React.FC<Props> = ({
           <Menu strokeWidth={1.5} />
         </button>
       </div>
-
-      {/* Sorting */}
       <div className="flex flex-col justify-center md:flex-row md:items-center gap-6 text-sm">
         <div className="flex items-center gap-2">
           <span>Sort by :</span>
@@ -63,8 +60,6 @@ const SortBar: React.FC<Props> = ({
           Showing {showingFrom} – {showingTo} of {total} result
         </div>
       </div>
-
-      {/* Page size */}
       <div className="flex items-center gap-2">
         <span>Show :</span>
         <select

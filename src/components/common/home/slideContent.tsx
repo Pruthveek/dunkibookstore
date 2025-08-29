@@ -34,7 +34,6 @@ const Slide: React.FC<SlideProps> = ({
         ${ishomev3 ? "pt-10" : "py-10"}
       `}
       >
-        {/* Text Section */}
         <div
           className={`text-center flex flex-col justify-center space-y-4 max-w-md
           ${ishomev2 ? "md:text-center" : "md:text-left"}
@@ -68,8 +67,6 @@ const Slide: React.FC<SlideProps> = ({
             </CustomButton>
           </Link>
         </div>
-
-        {/* Image Section */}
         <div
           className={`flex justify-center 
           ${

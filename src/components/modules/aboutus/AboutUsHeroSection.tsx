@@ -14,7 +14,6 @@ export default function AboutUsHeroSection() {
             className="object-cover"
           />
 
-          {/* Red Circle Badge */}
           <div
             className="
       absolute 

@@ -21,7 +21,7 @@ const ProductDetailBottom = () => {
             onClick={() => setActiveTab(tab)}
           >
             {tab}
-            {/* Animated underline */}
+
             <span
               className={`absolute left-0 bottom-0 h-[1px] bg-red-600 transition-all duration-500 ease-in-out  ${
                 activeTab === tab ? "w-full" : "w-0 group-hover:w-full"
@@ -31,7 +31,6 @@ const ProductDetailBottom = () => {
         ))}
       </div>
 
-      {/* Tab Content */}
       <div className="mt-6 text-md space-y-5">
         {activeTab === "Description" && (
           <>

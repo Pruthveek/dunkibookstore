@@ -16,7 +16,7 @@ export default function TestimonialCard({
   return (
     <div className="relative w-full sm:w-[90%] md:w-fit border border-gray-300 m-3 px-6 sm:px-8 md:px-12 pt-8 sm:pt-10 md:pt-12">
       <div className="absolute bottom-8 right-8">
-        {/* your svg */}
+
       </div>
 
       <div className="relative mx-auto size-[80px] sm:size-[100px] rounded-full overflow-hidden">

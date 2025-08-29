@@ -39,7 +39,6 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
 
   return (
     <aside className="w-full shrink-0">
-      {/* Availability */}
       <div className="border-b border-gray-300 py-2">
         <button
           onClick={() => setOpenAvailability(!openAvailability)}
@@ -99,8 +98,6 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
           )}
         </AnimatePresence>
       </div>
-
-      {/* Price */}
       <div className="border-b border-gray-300 py-2">
         <button
           onClick={() => setOpenPrice(!openPrice)}
@@ -162,8 +159,6 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
           )}
         </AnimatePresence>
       </div>
-
-      {/* Authors */}
       <CheckboxFilter
         title="Authors"
         items={Object.entries(counts.authors).map(([label, count]) => ({
@@ -174,7 +169,6 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
         onToggle={(key) => toggleSet("authors", key)}
       />
 
-      {/* Colors */}
       <CheckboxFilter
         title="Color"
         items={Object.entries(counts.colors).map(([label, count]) => ({
@@ -185,7 +179,6 @@ const FiltersSidebar: React.FC<Props> = ({ counts, filters, onChange, onApply })
         onToggle={(key) => toggleSet("colors", key)}
       />
 
-      {/* Categories */}
       <CheckboxFilter
         title="Categories"
         items={Object.entries(counts.categories).map(([label, count]) => ({

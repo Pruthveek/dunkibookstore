@@ -67,7 +67,7 @@ const MostViewed: React.FC = () => {
       <CollectionSection />
 
       <div className="section-container2 gap-4 grid grid-cols-1 md:grid-cols-4 py-10">
-        {/* Sidebar */}
+
         <div className="col-span-4 md:col-span-1 md:order-last">
           <FiltersSidebar
             counts={counts}
@@ -77,7 +77,6 @@ const MostViewed: React.FC = () => {
           />
         </div>
 
-        {/* Product Content */}
         <div className="col-span-4 md:col-span-3 md:order-first">
           <SortBar
             total={total}

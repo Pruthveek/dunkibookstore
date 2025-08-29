@@ -171,7 +171,6 @@ export default function PaymentModal({
         className="relative w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 z-10 text-gray-700 hover:text-black"
@@ -180,7 +179,6 @@ export default function PaymentModal({
           <CircleX size={22} />
         </button>
 
-        {/* Hero Image */}
         <div className="relative w-full h-96 flex-shrink-0">
           <Image
             src="/Images/PlaygroundImage1.jpg"
@@ -193,13 +191,11 @@ export default function PaymentModal({
         </div>
 
         <div className="p-5 sm:p-6 overflow-y-auto">
-          {/* Header */}
           <div className="flex items-center gap-2 mb-3">
             <CreditCard />
             <h2 className="text-lg font-semibold">Complete Payment</h2>
           </div>
 
-          {/* Info */}
           <p className="text-sm text-gray-600 mb-2">
             You&apos;re about to pay{" "}
             <span className="text-red-600 font-medium">
@@ -211,7 +207,6 @@ export default function PaymentModal({
             <span>Payments are secure and encrypted</span>
           </div>
 
-          {/* Pay Button */}
           <CustomButton
             onClick={handlePayment}
             disabled={loading}

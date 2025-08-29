@@ -28,15 +28,12 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <div className="relative" ref={ref}>
-      {/* Trigger */}
       <div
         onClick={() => setOpen((o) => !o)}
         className="cursor-pointer select-none"
       >
         {trigger}
       </div>
-
-      {/* Dropdown with animation */}
       <AnimatePresence>
         {open && (
           <motion.div

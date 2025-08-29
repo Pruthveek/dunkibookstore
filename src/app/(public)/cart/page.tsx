@@ -48,7 +48,6 @@ export default function CartPage() {
           </div>
         ) : (
           <>
-            {/* CART TABLE */}
             <div className="overflow-x-auto ">
               <table className="w-full border-collapse border border-gray-300 text-left text-sm">
                 <thead>
@@ -149,7 +148,6 @@ export default function CartPage() {
               </table>
             </div>
 
-            {/* BUTTONS */}
             <div className="mt-6 flex flex-wrap justify-between gap-3">
               <Link href="/" className="w-full md:w-fit">
                 <CustomButton variant="secondary" size="xl" className="w-full md:w-fit">
@@ -168,7 +166,6 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* DELIVERY + CART TOTALS */}
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="border border-gray-300 p-5">
                 <h3 className="mb-2">Delivery Date</h3>
@@ -213,7 +210,6 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Special Instructions */}
             <div className="mt-8 border border-gray-300 p-5">
               <h3 className="mb-2">Special instructions for seller</h3>
               <textarea
@@ -224,7 +220,6 @@ export default function CartPage() {
             </div>
           </>
         )}
-        {/* Payment Modal */}
         <PaymentModal
           isOpen={isPaymentModalOpen}
           onClose={() => setIsPaymentModalOpen(false)}

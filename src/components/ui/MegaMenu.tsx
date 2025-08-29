@@ -37,7 +37,6 @@ export default function MegaMenu({ images, categories, isOpen = true }: MegaMenu
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="bg-white shadow-xl p-8 w-full max-w-4xl mx-auto grid grid-cols-4 gap-10 "
         >
-          {/* Left - Images */}
           <div className="col-span-3 grid grid-cols-3 gap-4">
             {images.map((imgItem, index) => (
               <motion.div
@@ -60,7 +59,6 @@ export default function MegaMenu({ images, categories, isOpen = true }: MegaMenu
             ))}
           </div>
 
-          {/* Right - Categories */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}

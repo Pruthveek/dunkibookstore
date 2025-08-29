@@ -77,8 +77,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
               width={isHorizontal || isDetailHorizontal ? 220 : 320}
               className="h-auto w-full object-cover sm:h-full"
             />
-
-            {/* SALE + Timer */}
             {sale && (isVertical || isDetailHorizontal) && (
               <>
                 <div className="absolute right-2 top-2 rounded-full bg-red-600 px-2 text-sm text-white">
@@ -90,8 +88,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
               </>
             )}
           </div>
-
-          {/* Hover actions only for vertical */}
           {!isHorizontal && !isDetailHorizontal && (
             <div
               className="absolute opacity-0 inset-0 z-10 flex translate-y-4 items-center justify-center gap-3
@@ -121,8 +117,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           )}
         </div>
-
-        {/* Product Info */}
         <Link href={`/products/${productSlug}`}>
           <div
             className={`p-4 ${
@@ -167,8 +161,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </Link>
       </div>
-
-      {/* Quick View Modal */}
       <ProductQuickViewModal
         isOpen={isQuickViewOpen}
         onClose={() => setIsQuickViewOpen(false)}

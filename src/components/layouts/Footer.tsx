@@ -108,7 +108,6 @@ const Footer: React.FC<FooterProps> = ({
       className={`${bgColor} ${textColor} py-12 border-t border-gray-200 `}
     >
       <div className="grid grid-cols-1 px-4 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {/* About Info (only in variant1) */}
         {hasAbout(data) && (
           <div>
             <h3 className="text-2xl mb-4">{data.about.title}</h3>
@@ -123,12 +122,10 @@ const Footer: React.FC<FooterProps> = ({
           </div>
         )}
 
-        {/* Columns */}
         {data.columns.map((col, idx) => (
           <div key={idx}>
             <h3 className="text-2xl mb-4">{col.title}</h3>
 
-            {/* Links */}
             {col.links && (
               <ul className="space-y-2 text-md">
                 {col.links.map((link, i) => (
@@ -144,7 +141,6 @@ const Footer: React.FC<FooterProps> = ({
               </ul>
             )}
 
-            {/* Socials */}
             {col.socials && (
               <div className="space-y-2 mt-4">
                 {col.socials.map((social, i) => (
@@ -161,7 +157,6 @@ const Footer: React.FC<FooterProps> = ({
               </div>
             )}
 
-            {/* Newsletter (variant2 only) */}
             {col.newsletter && (
               <div className="mt-4 space-y-2 ">
                 <p className="text-md mb-3">{col.newsletter.description}</p>

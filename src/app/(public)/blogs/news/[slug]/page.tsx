@@ -4,7 +4,7 @@ import blogData from "@/data/blogData.json";
 import BlogSidebar from "@/components/common/blog/BlogSidebar";
 import { useEffect, useState } from "react";
 import BreadCrumb from "@/components/layouts/BreadCrumb";
-import BlogDetailCard from "@/components/common/blog/BlogDetailCard"; // ✅ import new component
+import BlogDetailCard from "@/components/common/blog/BlogDetailCard";
 
 type Comment = {
   commentId: number;

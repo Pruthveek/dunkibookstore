@@ -89,7 +89,6 @@ export default function ProductQuickViewModal({
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            {/* Close Button */}
             <button
               onClick={onClose}
               className="absolute right-3 top-3 text-gray-600 hover:text-black"
@@ -98,7 +97,6 @@ export default function ProductQuickViewModal({
               <CircleX size={24} />
             </button>
 
-            {/* Left: Image */}
             <div className="flex w-full items-center justify-center p-4 sm:w-1/2">
               <Image
                 src={product.imageUrl}
@@ -108,8 +106,6 @@ export default function ProductQuickViewModal({
                 className="object-contain"
               />
             </div>
-
-            {/* Right: Details */}
             <div className="flex w-full flex-col p-6 sm:w-1/2 overflow-y-auto">
               <h2 className="mb-2 text-xl font-semibold">{product.title}</h2>
               <p className="mb-2 text-gray-500">{product.author}</p>

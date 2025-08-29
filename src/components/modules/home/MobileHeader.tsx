@@ -40,7 +40,6 @@ const MobileMenu: React.FC = () => {
                     openSubmenu === item.label ? "max-h-40" : "max-h-0"
                   }`}
                 >
-                  {/* Submenu items */}
                   {item.submenu?.map((sub) => (
                     <Link
                       key={sub.label}
@@ -51,7 +50,6 @@ const MobileMenu: React.FC = () => {
                     </Link>
                   ))}
 
-                  {/* Mega menu categories */}
                   {item.megaMenu?.categories?.items?.map((cat) => (
                     <Link
                       key={cat.label}

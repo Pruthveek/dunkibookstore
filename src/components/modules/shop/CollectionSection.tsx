@@ -76,7 +76,6 @@ export default function CollectionSection() {
           ))}
         </Swiper>
 
-        {/* Prev / Next buttons */}
         <button
           ref={prevRef}
           type="button"

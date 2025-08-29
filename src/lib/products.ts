@@ -1,6 +1,6 @@
 import { Product, products } from "@/data/products";
 
-// ✅ handle both string and number
+//  handle both string and number
 export const parsePriceGBP = (price: string | number): number => {
   if (typeof price === "number") return price;
   if (typeof price === "string") {

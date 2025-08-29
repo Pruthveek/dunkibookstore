@@ -14,7 +14,6 @@ const Pagination: React.FC<Props> = ({ current, totalPages, onPage }) => {
 
   return (
     <div className="mt-10 flex items-center justify-center gap-2">
-      {/* Previous button */}
       <button
         className="flex items-center text-xl justify-center h-14 w-14  bg-gray-100  text-gray-600 transition cursor-pointer disabled:cursor-not-allowed"
         onClick={() => onPage(Math.max(1, current - 1))}
@@ -23,8 +22,6 @@ const Pagination: React.FC<Props> = ({ current, totalPages, onPage }) => {
       >
         ‹
       </button>
-
-      {/* Page numbers */}
       {pages.map((p) => (
         <button
           key={p}
@@ -39,8 +36,6 @@ const Pagination: React.FC<Props> = ({ current, totalPages, onPage }) => {
           {p}
         </button>
       ))}
-
-      {/* Next button */}
       <button
         className="flex items-center text-xl justify-center h-14 w-14  bg-gray-100 text-gray-600  transition cursor-pointer disabled:cursor-not-allowed"
         onClick={() => onPage(Math.min(totalPages, current + 1))}

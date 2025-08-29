@@ -72,8 +72,6 @@ export default function ProductDetail({ product }: Props) {
             />
           </SwiperSlide>
         </Swiper>
-
-        {/* Thumbnails with Custom Buttons */}
         <div className="relative group/arrow mt-3 sm:mt-4">
           <Swiper
             onSwiper={setThumbsSwiper}
@@ -113,8 +111,6 @@ export default function ProductDetail({ product }: Props) {
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* Custom Buttons */}
           <button
             ref={prevRef}
             type="button"
@@ -135,8 +131,6 @@ export default function ProductDetail({ product }: Props) {
           </button>
         </div>
       </div>
-
-      {/* RIGHT - Product Details */}
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -154,8 +148,6 @@ export default function ProductDetail({ product }: Props) {
         <p className="mt-3 text-sm sm:text-base leading-relaxed">
           {product.description}
         </p>
-
-        {/* Info Table */}
         <div className="mt-4 border border-gray-300 divide-y divide-gray-300 text-sm sm:text-md">
           {[
             ["Name :", product.title],
@@ -172,8 +164,6 @@ export default function ProductDetail({ product }: Props) {
             </div>
           ))}
         </div>
-
-        {/* Color Selector */}
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <span className="text-base sm:text-lg font-medium">Color :</span>
           <div className="flex gap-2 sm:gap-3 mt-2">
@@ -189,8 +179,6 @@ export default function ProductDetail({ product }: Props) {
             ))}
           </div>
         </div>
-
-        {/* Size Selector */}
         <div className="mt-4 flex flex-wrap items-center gap-4">
           <span className="text-base sm:text-lg font-medium">Size :</span>
           <div className="flex gap-2 mt-2">
@@ -210,8 +198,6 @@ export default function ProductDetail({ product }: Props) {
             ))}
           </div>
         </div>
-
-        {/* Quantity + Add to Cart */}
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
           <div className="flex border w-full sm:w-[280px] md:w-[400px] items-center justify-between">
             <button
@@ -246,14 +232,10 @@ export default function ProductDetail({ product }: Props) {
         >
           BUY IT NOW
         </CustomButton>
-
-        {/* Categories */}
         <p className="mt-4 text-sm sm:text-base">
           <span className="font-medium">Categories:</span>{" "}
           {product.category.join(", ")}
         </p>
-
-        {/* Checkout Icons */}
         <div className="mt-4">
           <p className="text-sm sm:text-base font-medium">
             Guaranteed safe checkout:
@@ -279,7 +261,6 @@ export default function ProductDetail({ product }: Props) {
           </div>
         </div>
 
-        {/* Social Share */}
         <div className="flex items-center gap-3 mt-4">
           <p className="text-sm sm:text-base font-medium">Share:</p>
           <div className="flex gap-2">
@@ -296,7 +277,6 @@ export default function ProductDetail({ product }: Props) {
           </div>
         </div>
 
-        {/* Shipping Info */}
         <ul className="mt-4 text-sm sm:text-base space-y-2">
           <li className="flex gap-2 items-center">
             <Timer size={16} strokeWidth={1} /> Orders ship within 5 to 10
@@ -308,7 +288,6 @@ export default function ProductDetail({ product }: Props) {
           </li>
         </ul>
       </motion.div>
-      {/* Payment Modal */}
       <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}

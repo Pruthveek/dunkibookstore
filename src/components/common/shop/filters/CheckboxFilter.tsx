@@ -16,7 +16,6 @@ const CheckboxFilter: React.FC<Props> = ({ title, items, selected, onToggle }) =
 
   return (
     <div className="border-b border-gray-300 py-2">
-      {/* Header */}
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center py-2 text-left"
@@ -30,8 +29,6 @@ const CheckboxFilter: React.FC<Props> = ({ title, items, selected, onToggle }) =
           {open ? "−" : "+"}
         </span>
       </button>
-
-      {/* Dropdown with Motion */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.div

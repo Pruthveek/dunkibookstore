@@ -47,17 +47,12 @@ export default function NavbarMenu() {
                 <MdKeyboardArrowDown className="w-5 h-5 text-gray-500 group-hover:text-red-600" />
               )}
               </Link>
-              
             </div>
-
-            {/* Submenu */}
             {menu.submenu && openIndex === index && (
               <div className="absolute top-5 left-0 mt-2 z-30">
                 <DropdownMenu submenu={menu.submenu} />
               </div>
             )}
-
-            {/* Mega Menu */}
             {menu.megaMenu && openIndex === index && (
               <div className="absolute top-5 -left-10 mt-2 z-30 w-3xl">
                 <MegaMenu
