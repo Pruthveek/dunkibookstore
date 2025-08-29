@@ -79,7 +79,7 @@ const SearchBox = ({ placeholder = "Search...", buttontext = "Search" ,variant="
       {open && results.length > 0 && (
         <div className="absolute left-0 w-full bg-white border border-gray-300 shadow-lg z-[9999] max-h-80 overflow-y-auto">
           <ul className="divide-y divide-dashed divide-gray-300">
-            <li className="py-4 px-34">PRODUCTS</li>
+            <li className="p-3 text-xl">Products</li>
             {results.map((item) => (
               <li key={item.productId}>
                 <Link

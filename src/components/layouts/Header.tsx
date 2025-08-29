@@ -164,16 +164,18 @@ export default function Header({
           height={34}
         /></Link>
         <div className="flex items-center gap-3">
-          <HeaderIcons />
+          <HeaderIcons variant="secondary" />
           <button onClick={() => setSidebarOpen(true)}>
             <Menu size={28} />
           </button>
         </div>
       </div>
 
+      {/* Mobile Drawer (unchanged) */}
       <AnimatePresence>
         {sidebarOpen && (
           <>
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -181,6 +183,7 @@ export default function Header({
               className="fixed inset-0 bg-black z-[60]"
               onClick={() => setSidebarOpen(false)}
             />
+            {/* Top Drawer */}
             <motion.div
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
@@ -188,6 +191,7 @@ export default function Header({
               transition={{ type: "tween", duration: 0.3 }}
               className="fixed top-0 right-0 h-full w-[300px] bg-white shadow-lg z-[70] flex flex-col"
             >
+              {/* Drawer Header */}
               <div className="flex justify-between items-center gap-4 p-4 border-b border-gray-300">
                 <SearchBox placeholder="I'm looking for…" />
                 <button onClick={() => setSidebarOpen(false)}>
